@@ -1,0 +1,71 @@
+version: '3'
+
+volumes:
+  # Localのデータ保存用[Volume]
+  mysql-volume:
+
+services:
+  # PHP(Laravel)のサービス
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ./src/:/var/www/html
+    #[environment] 環境変数の設定
+    # PHPコンテナでの環境変数設定はLaravel側で行う(Laravelプロジェクトの.envに設定)でも
+    # 問題ないので、ここへ書かなくても大丈夫
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_NAME}
+      - DB_USERNAME=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+
+  # Nginxのサービス
+  web:
+    # [build]でDockerfileの設定を行う
+    build:
+      #[context] docker buildコマンドを実行した場所
+      context: .
+      # [context]をルートディレクトリに指定して、Dockerfileの場合を指定
+      dockerfile: ./docker/nginx/Dockerfile
+
+    # [ports]はローカルとDockerコンテナ間のポート番号の対応付け設定
+    ports:
+        # Localポート番号 : Dockerコンテナポート番号
+        # 80はNginxのデフォルトポート番号
+      - ${WEB_PORT}:80
+    # [depends_on]コンテナ間の依存関係を設定
+    depends_on:
+      - app
+    # [volumes]ローカルとDockerコンテナ間のリソース共有
+    volumes:
+      # Local側である ./src の中身をコンテナ側の/var/www/htmlへ共有
+      # 「.」はカレントディレクトリ
+      - ./src/:/var/www/html
+
+
+# MySQLのサービス
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    ports:
+      # 3306はMySQLのデフォルト番号
+      - ${DB_PORT}:3306
+    environment:
+      # DB名
+      MYSQL_DATABASE: ${DB_NAME}
+      # ユーザー名
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      # root権限のパスワード
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      # 時間設定
+      TZ: 'Asia/Tokyo'
+    # Docker Volumeを仕様（永続保存）
+    volumes:
+      # 
+      - mysql-volume:/var/lib/mysql
