@@ -10,7 +10,7 @@ export default {
     name:'HelloWorld',
     setup(){
         const data = reactive({
-            message :'GoodByeLaravel!'
+            message :'compose Laravel!'
         })
         return {
             data

@@ -22443,7 +22443,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'HelloWorld',
   setup: function setup() {
     var data = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      message: 'GoodByeLaravel!'
+      message: 'compose Laravel!'
     });
     return {
       data: data
