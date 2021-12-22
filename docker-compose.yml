@@ -2,6 +2,7 @@ version: '3'
 
 volumes:
   # Localのデータ保存用[Volume]
+  # Docker Volumeなのでここへ保存した内容は消えない
   mysql-volume:
 
 services:
@@ -65,7 +66,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       # 時間設定
       TZ: 'Asia/Tokyo'
-    # Docker Volumeを仕様（永続保存）
+    # 最上記Docker Volumeを使用（永続保存）
     volumes:
       # 
       - mysql-volume:/var/lib/mysql
