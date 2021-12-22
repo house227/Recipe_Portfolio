@@ -1,16 +1,22 @@
 <template>
   <div>
     {{ data.message }}
+    <HelloWorld />
   </div>
 </template>
 
 <script>
 import { reactive } from "vue";
+import HelloWorld from './components/HelloWorld'
+
 export default {
-    name:'HelloWorld',
+    name: 'App',
+    components:{
+        HelloWorld
+    },
     setup(){
         const data = reactive({
-            message :'Hello Laravel!'
+            message :'Hello Hi!'
         })
         return {
             data
