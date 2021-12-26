@@ -16,7 +16,7 @@ export default {
     },
     setup(){
         const data = reactive({
-            message :'Hello Hi!'
+            message :'Hello Docker!'
         })
         return {
             data

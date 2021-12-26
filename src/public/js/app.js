@@ -22397,7 +22397,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup() {
     var data = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      message: 'Hello Hi!'
+      message: 'Hello Docker!'
     });
     return {
       data: data
