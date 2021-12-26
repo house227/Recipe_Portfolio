@@ -10,7 +10,7 @@ export default {
     name:'HelloWorld',
     setup(){
         const data = reactive({
-            message :'compose Laravel Docker-compose!'
+            message :'Bye Laravel Docker!'
         })
         return {
             data
