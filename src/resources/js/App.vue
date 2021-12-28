@@ -4,8 +4,8 @@
         <!-- ヘッダー -->
         <Header />
         {{ data.message }}
-
         <router-view></router-view>
+        <Footer />
     </div>
 </template>
 
@@ -13,13 +13,15 @@
 import { reactive } from "vue";
 import HelloWorld from './components/HelloWorld';
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 
 export default {
     name: 'App',
     components:{
         HelloWorld,
-        Header
+        Header,
+        Footer
     },
     setup(){
         const data = reactive({
