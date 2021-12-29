@@ -12,19 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/{any}', function () {
-//     return view('layout');
-// });
+Route::get('{any}', function(){
+    return view('layout');
+})->where('any', '.*');
 
 //これで検索すれば意味が出てくる。今は後回し 
-// ->where('any','.*');
+
 
 // Route::get('/', 'App\Http\Controllers\HelloController@index');
 
-Route::get('/', function () {
-    return view('layout');
-});
+// Route::get('/', function () {
+//     return view('layout');
+// });
 
-Route::get('/test', 'App\Http\Controllers\HelloController@index');
+// Route::get('/test', 'App\Http\Controllers\HelloController@index');
 

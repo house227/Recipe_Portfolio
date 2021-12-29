@@ -1,7 +1,5 @@
 <template>
-    <div class="container">
-        <p>{{msg}}</p>
-        <hr>
+    <div>
         <!-- getで送れる事が分かった。postだとcsrf対策しないとエラー -->
         <form action="/test" method="get">
             <input type="hidden" name="_token" v-bind:value="csrf">
@@ -14,17 +12,8 @@
 
 <script>
     export default {
-        data:function(){
-            return {
-                msg:'please your name:',
-                name:'',
-                
-            };
-        },
-        methods:{
-            doAction:function(){
-                this.msg = 'Hello, ' + this.name + "!!";
-            }
+        data(){
+
         }
     }
 </script>
