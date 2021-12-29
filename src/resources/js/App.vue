@@ -28,7 +28,8 @@ export default {
             message :'Hello Docker!'
         })
         return {
-            data
+            data,
+            
         }
     }
 };
