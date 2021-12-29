@@ -1,9 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router'
 // 必要なコンポーネントをインポート
-import HelloWorld from './components/HelloWorld'
+import hello from './components/hello'
 import bye from './components/bye'
-import test from './components/test'
-import ExampleComponent from './components/ExampleComponent'
+import Top from './components/Top'
 
 export const router = createRouter({
     history: createWebHistory(),
@@ -11,25 +10,20 @@ export const router = createRouter({
         // 必要な数だけ書く
         {
             path: '/',
-            name: 'index',
-            component: ExampleComponent,
+            name: 'Top',
+            component: Top,
         },
         {
             path: '/hello',
             // nameには一意な名前をつける
             name: 'hello', 
-            component: HelloWorld,
+            component: hello,
         },
         {
             path: '/bye',
             name: 'bye',
             component: bye,
         },
-        {
-            path: '/test',
-            name: 'test',
-            component: test,
-        }
     ]
 })
 

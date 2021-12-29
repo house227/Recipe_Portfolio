@@ -3,7 +3,7 @@
     <div>
         <!-- ヘッダー -->
         <Header />
-        {{ data.message }}
+        <!-- ここにルート別のコンポーネントが入る -->
         <router-view></router-view>
         <Footer />
     </div>
@@ -11,7 +11,6 @@
 
 <script>
 import { reactive } from "vue";
-import HelloWorld from './components/HelloWorld';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import test from './components/test.vue';
@@ -20,19 +19,8 @@ import test from './components/test.vue';
 export default {
     name: 'App',
     components:{
-        HelloWorld,
         Header,
-        Footer,
-        test,
-    },
-    setup(){
-        const data = reactive({
-            message :'Hello Docker!'
-        })
-        return {
-            data,
-            
-        }
+        Footer
     }
 };
 </script>

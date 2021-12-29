@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('{any}', function(){
-    return view('layout');
-})->where('any', '.*');
+
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any','.*');
 
 //これで検索すれば意味が出てくる。今は後回し 
-
+// 
 
 // Route::get('/', 'App\Http\Controllers\HelloController@index');
 
