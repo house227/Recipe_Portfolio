@@ -24,9 +24,14 @@ export default {
 </script>
  
 <style>
+header{
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1480px;
+}
 /* ヘッダーサイトロゴ */
 #top_header{
-    display: flex;
+  display: flex;
   justify-content: space-between;
   background: white;
   color: red;
@@ -55,5 +60,6 @@ nav a{
 
 hr {
     border-width: 2px;
+    max-width: 1480px;
 }
 </style>
