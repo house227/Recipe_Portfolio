@@ -22,12 +22,32 @@
                 <p>もっと見る...</p>
                 <hr>
             </div>
+
+            <div id="search-recipe">
+                <h1>★レシピ検索</h1>
+                <ul>
+                    <!-- 送信方法/送信先は要編集 -->
+                    <form action="/" method="post">
+                    <li>レシピ名/ユーザー名 から検索</li>
+                        <input type="text" name="main_search">
+                        <input type="submit" value="検索!!">
+                    </form>
+                    <form action="/" method="post">
+                        <li>食材から検索(複数可)</li>
+                            <!-- forで項目全てを表示 食材欄追加はイベントでitemsへの追加を行う -->
+                            <ul v-for="item in items" :key="item.id">
+                                
+                            </ul>
+                    </form>
+                </ul>
+            </div>
             
         </body>
     </div>
 </template>
 
 <script>
+
 </script>
 
 <style>
