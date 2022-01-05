@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 // 必要なコンポーネントをインポート
 import hello from './components/hello'
-import bye from './components/bye'
+import bye from './components/Bye'
 import Top from './components/Top'
 
 export const router = createRouter({

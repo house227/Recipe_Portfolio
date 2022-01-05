@@ -7,7 +7,6 @@
             <nav>
             <router-link to="/hello">hello</router-link>
             <router-link to="/bye">bye</router-link>
-            <router-link to="/test">test</router-link>
             </nav>
         </header>
         <hr>
