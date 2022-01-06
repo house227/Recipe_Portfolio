@@ -23,16 +23,17 @@
                 <hr>
             </div>
 
+            <!-- レシピ検索 -->
             <div id="search-recipe">
                 <h1>★レシピ検索</h1>
                 
                 <!-- レシピ名/ユーザー名で検索 -->
                 <!-- 送信方法/送信先は要編集 -->
-                <div id="recipe-form">
+                <div style="padding-right: 500px">
                     <form action="/" method="post">
                         <h2 id="form1">●レシピ名/ユーザー名 から検索</h2> 
-                        <input type="text" name="main_search"  class="text-form" id="main-search">
-                        <input type="submit" value="検索!!" id="form1-button">
+                        <input type="text" name="main_search"  class="text-form" style="margin-left:60px">
+                        <input type="submit" value="検索!!" style="font-size: 20px">
                     </form>
 
 
@@ -93,7 +94,33 @@
                 <hr>
             </div>
 
+            <!-- 献立ランダム生成 -->
+            <div id="auto-recipe">
+                <h1>★献立ランダム作成</h1>
+                <div style="font-size: 20px">
+                    <h2>定番の和食から海外料理まで</h2>
+                    <h2 style="color:red">好きなジャンルを選ぶだけ<span style="color:black">で</span></h2>
+                    <h2>ランダムで献立を作成します！</h2>
+                </div>
 
+            <!-- 送信先/送信方法は要変更 -->
+            <form action="/" method="post">
+                <!-- 料理ジャンル選択 -->
+                <select name="recipe-genre" style="font-size:35px">
+                    <option value="全て" selected>全て</option>
+                    <option value="和食">和食</option>
+                    <option value="洋食">洋食</option>
+                    <option value="中華">中華</option>
+                    <option value="韓国">韓国料理</option>
+                    <option value="イタリアン">イタリアン</option>
+                    <option value="フレンチ">フレンチ</option>
+                    <option value="その他">その他</option>
+                </select>
+                <input type="submit" value="検索!!" style="font-size: 28px">
+
+                
+            </form>
+            </div>
             
         </body>
     </div>
@@ -225,18 +252,10 @@
             padding-right: 700px;
         }
 
-        /* フォーム部分全体 */
-        #search-recipe #recipe-form{
-            padding-right: 500px;
-        }
-
         /* フォーム欄個別調整用1 */
         #form1{
             padding-left: 30px;
             margin-bottom: 0px;
-        }
-        #main-search{
-            margin-left:60px;
         }
 
         /* フォーム欄個別調整用2 */
@@ -250,9 +269,6 @@
         }
 
         /* 検索ボタン */
-        #form1-button{
-            font-size: 20px;
-        }
         #form2-button{
             margin-left: 200px;
             font-size: 20px;
@@ -285,6 +301,7 @@
             color: black;
         }
 
+        /* ログイン促し欄 */
         #prompt{
             text-align: center;
             color: white;
@@ -300,6 +317,7 @@
         #allergy-text{
             color: yellow;
         }
+        /* 新規登録/ログインの選択欄 */
         #route{
             display: flex;
             justify-content: center;
@@ -320,4 +338,21 @@
         }
 
         /* 「レシピ検索」ここまで */
+
+
+        /* 「献立作成」ここから */
+
+        /* 全体 */
+        #auto-recipe{
+            text-align: center;
+        }
+
+        /* タイトル */
+        #auto-recipe h1{
+            color: rgb(255, 145, 0);
+            text-decoration:underline rgb(255, 145, 0);
+            font-size: 40px;
+        }
+
+        /* 「献立作成」ここまで */
 </style>
