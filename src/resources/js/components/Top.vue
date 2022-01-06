@@ -25,21 +25,48 @@
 
             <div id="search-recipe">
                 <h1>★レシピ検索</h1>
-                <ul>
+
                     <!-- 送信方法/送信先は要編集 -->
-                    <form action="/" method="post">
-                    <li>レシピ名/ユーザー名 から検索</li>
-                        <input type="text" name="main_search">
-                        <input type="submit" value="検索!!">
-                    </form>
-                    <form action="/" method="post">
-                        <li>食材から検索(複数可)</li>
-                            <!-- forで項目全てを表示 食材欄追加はイベントでitemsへの追加を行う -->
-                            <ul v-for="item in items" :key="item.id">
-                                
-                            </ul>
-                    </form>
-                </ul>
+                    <div id="recipe-form">
+                        <form action="/" method="post">
+                            <h2 id="form1">●レシピ名/ユーザー名 から検索</h2> 
+                            <input type="text" name="main_search">
+                            <input type="submit" value="検索!!" >
+                        </form>
+
+
+
+                        <!-- 送信方法/送信先は要編集 ※各食材に番号を与えないとダメ？(3目並べを思い出せば...)-->
+                        <form action="/" method="post">
+                            <h2 id="form2">●食材から検索(5件まで)</h2>
+
+                                <!-- 料理ジャンル選択 -->
+                                <select name="recipe-genre" class="recipe-genre">
+                                    <option value="全て" selected>全て</option>
+                                    <option value="和食">和食</option>
+                                    <option value="洋食">洋食</option>
+                                    <option value="中華">中華</option>
+                                    <option value="韓国">韓国料理</option>
+                                    <option value="イタリアン">イタリアン</option>
+                                    <option value="フレンチ">フレンチ</option>
+                                    <option value="その他">その他</option>
+                                </select>
+
+                                <!-- forで配列の中を回す。 -->
+                                <li v-for="(item, id) in items" :key="id">
+                                    <!-- 食材入力欄 v-focusでフォーカスが自動で当てられる -->
+                                    <input v-focus type="text" v-model="items[id]">
+                                        <img src="photo/Box.png" alt="ゴミ箱" @click="removeInput(id)" id="box-img">
+                                </li>
+                                <!-- 追加ボタン (v-ifにより入力欄5個未満の間表示される) -->
+                                <button type="button" @click="addInput()" v-if="!maxInputCount" >
+                                    追加
+                                    (残り<span v-text="InputCount"></span>つ)
+                                </button><br>
+
+                                <input type="submit" value="検索!!" id="form2-button">
+                        </form>
+                    </div>
             </div>
             
         </body>
@@ -47,7 +74,44 @@
 </template>
 
 <script>
-
+    export default{
+        data(){
+            return{
+                // items…inputが入れる為の配列。初期値で空を１つ入れておく
+                items: [''],
+                // 食材用inputの最大個数
+                maxInput: 5,
+            }
+        },
+        methods: {
+            addInput(){
+                // itemsに空の配列を追加する
+                this.items.push('');
+            },
+            removeInput(id){
+                // id番の配列を１つ削除する
+                this.items.splice(id, 1);
+            },
+        },
+        computed: {
+            // 上記v-if文で使用する関数。inputが5個未満の間追加ボタンを表示するv-if文で使用
+            maxInputCount(){
+                return (this.items.length >= this.maxInput);
+            },
+            // 食材用inputの数を数えてる(最大値-配列の個数)
+            InputCount(){
+                return this.maxInput - this.items.length;
+            }
+        },
+        directives: {
+            // 食材入力欄に自動でフォーカスを当てる(当てたい場所にv-focusを付与)
+            focus: {
+                mounted(el) {
+                    el.focus();
+                }
+            },
+        },
+    }
 </script>
 
 <style>
@@ -114,4 +178,47 @@
     }
 
         /* 「おすすめレシピ」ここまで */
+
+
+        /* 「レシピ検索」ここから */
+
+        /* 全体 */
+        #search-recipe{
+            text-align: center;
+        }
+
+        /* タイトル */
+        #search-recipe h1{
+            color: rgb(255, 145, 0);
+            text-decoration:underline rgb(255, 145, 0);
+            padding-right: 700px;
+        }
+
+        /* フォーム部分全体 */
+        #search-recipe #recipe-form{
+            padding-right: 500px;
+        }
+
+        /* フォーム欄個別調整用1 */
+        #form1{
+            padding-left: 30px;
+            margin-bottom: 0px;
+        }
+
+        /* フォーム欄個別調整用2 */
+        #form2{
+            padding-right: 50px;
+            margin-bottom: 0px;
+        }
+
+        /* 検索ボタン */
+        #form2-button{
+            margin-left: 200px;
+        }
+
+        .recipe-genre{
+            font-size:20px;
+        }
+
+        /* 「レシピ検索」ここまで */
 </style>
