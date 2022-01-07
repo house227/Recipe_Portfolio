@@ -2,7 +2,8 @@
     <!-- ベースの作成 -->
     <div>
         <!-- ヘッダー -->
-        <Header />
+        <HeaderGuestTop v-if="this.$route.path === '/'"/>
+        <HeaderUserCreate v-if="this.$route.path === '/newusercreate'"/>
         <!-- ここにルート別のコンポーネントが入る -->
         <router-view></router-view>
         <Footer />
@@ -11,15 +12,19 @@
 
 <script>
 import { reactive } from "vue";
-import Header from './components/PageBase/Header.vue';
+import HeaderGuestTop from './components/PageBase/Header_GuestTop.vue';
+import HeaderUserCreate from './components/PageBase/Header_UserCreate.vue';
 import Footer from './components/PageBase/Footer.vue';
 
 
 export default {
     name: 'App',
     components:{
-        Header,
-        Footer
-    }
+        HeaderGuestTop,
+        HeaderUserCreate,
+        Footer,
+
+    },
+
 };
 </script>
