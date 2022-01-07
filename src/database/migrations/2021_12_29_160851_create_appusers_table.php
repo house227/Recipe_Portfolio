@@ -15,6 +15,7 @@ class CreateAppusersTable extends Migration
     {
         Schema::create('appusers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('mail');
             $table->string('pass');
             $table->string('introduction');//紹介文
