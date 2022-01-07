@@ -16,11 +16,12 @@ class appuserFactory extends Factory
     {
         return [
             // 'カラム名' => 設定したい値,
+            // image()とimageUrl()のどちらがいいか試したい
             'name' => $this->faker->name,
             'mail' => $this->faker->safeEmail,
             'pass' => $this->faker->password($minLength = 6, $maxLength = 20),
-            'introduction' => $this->faker->text($maxNbChars = 200),
-            'photo' => $this->faker->imageUrl($width = 640, $height = 480, $category = null, $randomize = true, $word = null, $gray = false)
+            'introduction' => $this->faker->text($maxNbChars = 5),
+            'photo' => $this->faker->image($dir = null, $width = 640, $height = 480, $category = null, $fullPath = true, $randomize = true, $word = null)
         ];
     }
 }
