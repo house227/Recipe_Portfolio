@@ -98,9 +98,9 @@
             <div id="auto-recipe">
                 <h1>★献立ランダム作成</h1>
                 <div style="font-size: 20px">
-                    <h2>定番の和食から海外料理まで</h2>
-                    <h2 style="color:red">好きなジャンルを選ぶだけ<span style="color:black">で</span></h2>
-                    <h2>ランダムで献立を作成します！</h2>
+                    <h2 style="margin-bottom: 0px;">定番の和食から海外料理まで</h2>
+                    <h2 id="strong-text">好きなジャンルを選ぶだけ<span style="color:black; font-size:35px">で</span></h2>
+                    <h2 style="margin-top:0px;">ランダムで献立を作成します！</h2>
                 </div>
 
             <!-- 送信先/送信方法は要変更 -->
@@ -351,6 +351,13 @@
         #auto-recipe h1{
             color: rgb(255, 145, 0);
             text-decoration:underline rgb(255, 145, 0);
+            font-size: 40px;
+        }
+
+        #strong-text{
+            color:red; 
+            margin-top:0px;
+            margin-bottom:0px;
             font-size: 40px;
         }
 

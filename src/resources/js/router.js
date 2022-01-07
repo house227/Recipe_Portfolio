@@ -4,6 +4,8 @@ import UserCreate_Top from './components/NewUserCreate/UserCreate_Top'
 import bye from './components/Bye'
 import GuestTop from './components/Top/GuestTop'
 
+
+
 export const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -24,6 +26,8 @@ export const router = createRouter({
             name: 'bye',
             component: bye,
         },
+        
+        
     ]
 })
 
