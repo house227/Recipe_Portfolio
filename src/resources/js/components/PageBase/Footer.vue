@@ -31,6 +31,7 @@ footer{
   width: 80%;
   margin: 0 auto;
   padding:0 100px;
+  margin-top: 200px;
   max-width: 1480px;
   background: rgb(46, 46, 46);
 }

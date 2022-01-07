@@ -11,8 +11,8 @@
 
 <script>
 import { reactive } from "vue";
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
+import Header from './components/PageBase/Header.vue';
+import Footer from './components/PageBase/Footer.vue';
 
 
 export default {
