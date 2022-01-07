@@ -5,7 +5,7 @@
             <router-link to="/" id="top_header">Todays Recipe</router-link>
             <h2 id="guest">ようこそゲストさん</h2>
             <nav>
-            <router-link to="/hello">hello</router-link>
+            <router-link to="/newusercreate">新規登録</router-link>
             <router-link to="/bye">bye</router-link>
             </nav>
         </header>
