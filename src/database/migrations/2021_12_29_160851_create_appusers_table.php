@@ -19,7 +19,7 @@ class CreateAppusersTable extends Migration
             $table->string('mail');
             $table->string('pass');
             $table->string('introduction');//紹介文
-            $table->string('photo');
+            $table->binary('photo');
             $table->timestamps();
         });
     }
