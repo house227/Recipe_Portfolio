@@ -5,7 +5,7 @@
             <router-link to="/" id="top_header">Todays Recipe</router-link>
             <h2 id="guest">ようこそゲストさん</h2>
             <nav>
-            <router-link to="/login">ログイン</router-link>
+            <router-link to="/logintop" class="login-url">ログイン</router-link>
 
             </nav>
         </header>
@@ -55,7 +55,10 @@ nav a{
   display:inline-block;
   padding: 10px;
   font-size: 30px;
-  color: orange;
+}
+
+.login-url{
+  color: rgb(255, 145, 0);
 }
 
 hr {

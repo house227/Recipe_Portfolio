@@ -6,7 +6,7 @@
             <h2 id="guest">ようこそゲストさん</h2>
             <nav>
             <router-link to="/newusercreate" class="mypage-url">新規登録</router-link>
-            <router-link to="/logintop" class="login-url">ログイン</router-link>
+
             </nav>
         </header>
         <hr>
@@ -56,6 +56,7 @@ nav a{
   padding: 10px;
   font-size: 30px;
 }
+
 .login-url{
   color: rgb(255, 145, 0);
 }

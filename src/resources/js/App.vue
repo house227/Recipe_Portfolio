@@ -3,7 +3,11 @@
     <div>
         <!-- ヘッダー -->
         <HeaderGuestTop v-if="this.$route.path === '/'"/>
-        <HeaderUserCreate v-if="this.$route.path === '/newusercreate'"/>
+        <HeaderUserCreate v-else-if="this.$route.path === '/newusercreate'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/sendmail'" />
+        <HeaderLogin v-else-if="this.$route.path === '/logintop'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/resetpass'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/resetsendmail'" />
         <!-- ここにルート別のコンポーネントが入る -->
         <router-view></router-view>
         <Footer />
@@ -14,6 +18,7 @@
 import { reactive } from "vue";
 import HeaderGuestTop from './components/PageBase/Header_GuestTop.vue';
 import HeaderUserCreate from './components/PageBase/Header_UserCreate.vue';
+import HeaderLogin from './components/PageBase/Header_Login.vue';
 import Footer from './components/PageBase/Footer.vue';
 
 
@@ -22,6 +27,7 @@ export default {
     components:{
         HeaderGuestTop,
         HeaderUserCreate,
+        HeaderLogin,
         Footer,
 
     },
