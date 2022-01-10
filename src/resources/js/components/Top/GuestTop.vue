@@ -84,10 +84,10 @@
                         <h2 id="allergy-text">アレルギー情報<span>を登録しよう！</span></h2>
 
                         <!-- 新規登録かログインを押せる -->
-                        <div id="route">
+                        <div class="route">
                             <!-- 仮でPタグだが、Routeに変えてページ以降出来るようにする -->
-                            <p id="route-tag1">新規登録</p>
-                            <p id="route-tag2">ログイン</p>
+                            <a href="/NewUserCreate" id="route-tag1">新規登録</a>
+                            <a href="/LoginTop" id="route-tag2">ログイン</a>
                         </div>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
             color: yellow;
         }
         /* 新規登録/ログインの選択欄 */
-        #route{
+        .route{
             display: flex;
             justify-content: center;
             gap: 2px 15px;

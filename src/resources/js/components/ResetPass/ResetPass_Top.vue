@@ -5,6 +5,7 @@
 
       <div class="mail-form">
         <h2 style="margin-bottom:0px; padding-right:90px;">ご登録メールアドレス</h2>
+        <!-- バリデーションチェック -->
         <form action="/ResetSendMail">
           <input type="email" name="new-mail" style="width:300px; height:25px; margin-top:0px;"> <br>
           <input type="submit" value="送信" style="margin-top:20px; font-size:18px;">
