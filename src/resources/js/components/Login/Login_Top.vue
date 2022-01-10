@@ -8,7 +8,7 @@
         <h2 style="margin-bottom:0px; padding-right:60px;">ご登録メールアドレス</h2>
 
         <!-- 送信先/内容は要修正 -->
-        <form action="/logintop" >
+        <form action="/LoginTop" >
           <input type="email" name="mail" style="width:300px; height:25px; margin-top:0px;"> 
           <h2 style="margin-bottom:0px; padding-right:180px;">パスワード</h2>
           <input type="password" name="password" style="width:300px; height:25px; margin-top:0px;">
@@ -17,7 +17,7 @@
         </form>
 
           <!-- パスワード再設定用 -->
-          <router-link to="/resetpass" style="padding-left:380px; color:blue;">
+          <router-link to="/ResetPass" style="padding-left:380px; color:blue;">
             パスワードを忘れましたか？
           </router-link>
       </div>

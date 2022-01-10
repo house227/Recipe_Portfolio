@@ -3,11 +3,12 @@
     <div>
         <!-- ヘッダー -->
         <HeaderGuestTop v-if="this.$route.path === '/'"/>
-        <HeaderUserCreate v-else-if="this.$route.path === '/newusercreate'" />
-        <HeaderUserCreate v-else-if="this.$route.path === '/sendmail'" />
-        <HeaderLogin v-else-if="this.$route.path === '/logintop'" />
-        <HeaderUserCreate v-else-if="this.$route.path === '/resetpass'" />
-        <HeaderUserCreate v-else-if="this.$route.path === '/resetsendmail'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/NewUserCreate'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/SendMail'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/CreateIndex'" />
+        <HeaderLogin v-else-if="this.$route.path === '/LoginTop'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/ResetPass'" />
+        <HeaderUserCreate v-else-if="this.$route.path === '/ResetSendMail'" />
         <!-- ここにルート別のコンポーネントが入る -->
         <router-view></router-view>
         <Footer />

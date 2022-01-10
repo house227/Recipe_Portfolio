@@ -4,6 +4,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import GuestTop from './components/Top/GuestTop'
 import UserCreate_Top from './components/NewUserCreate/UserCreate_Top'
 import UserCreate_SendMail from './components/NewUserCreate/UserCreate_SendMail'
+import UserCreate_Index from './components/NewUserCreate/UserCreate_Index'
 import LoginTop from './components/Login/Login_Top'
 import ResetPass from './components/ResetPass/ResetPass_Top'
 import ResetPass_SendMail from './components/ResetPass/ResetPass_SendMail'
@@ -23,32 +24,38 @@ export const router = createRouter({
         },
         {
             // 新規登録メールフォーム
-            path: '/newusercreate',
+            path: '/NewUserCreate',
             // nameには一意な名前をつける
             name: 'UserCreate_Top', 
             component: UserCreate_Top,
         },
         {
             // 新規登録用メール送信画面
-            path: '/sendmail' ,
+            path: '/SendMail' ,
             name: 'UserCreate_SendMail' ,
             component: UserCreate_SendMail,
         },
         {
+            // 新規登録用情報入力画面
+            path: '/CreateIndex' ,
+            name: 'UserCreate_Index' ,
+            component: UserCreate_Index,
+        },
+        {
             // ログインフォームTop
-            path: '/logintop',
+            path: '/LoginTop',
             name: 'LoginTop',
             component: LoginTop,
         },
         {
             // パスワード再設定用
-            path: '/resetpass',
+            path: '/ResetPass',
             name: 'ResetPass',
             component: ResetPass,
         },
         {
             // パスワード再設定用メール送信画面
-            path: '/resetsendmail' ,
+            path: '/ResetSendMail' ,
             name: 'ResetPass_SendMail' ,
             component: ResetPass_SendMail,
         },

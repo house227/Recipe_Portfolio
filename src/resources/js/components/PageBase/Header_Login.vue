@@ -5,7 +5,7 @@
             <router-link to="/" id="top_header">Todays Recipe</router-link>
             <h2 id="guest">ようこそゲストさん</h2>
             <nav>
-            <router-link to="/newusercreate" class="mypage-url">新規登録</router-link>
+            <router-link to="/NewUserCreate" class="mypage-url">新規登録</router-link>
 
             </nav>
         </header>
