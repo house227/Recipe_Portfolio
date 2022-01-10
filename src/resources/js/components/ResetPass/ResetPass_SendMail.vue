@@ -11,7 +11,7 @@
         </p>
 
         <!-- 作成用リンク -->
-        <a href="">次へ</a>
+        <a href="Resetindex">次へ</a>
       </div>
     </body>
   </div>
