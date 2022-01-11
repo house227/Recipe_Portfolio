@@ -15,10 +15,13 @@ class allergysTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $param = [
-            //'appusers_id'のリレーションの確認？
-        ];
-        DB::table('allergys')->insert($param);
+        DB::table('allergys')->insert([
+
+            //appuserモデルにhasOneのリレーションしたはず
+            [
+                'appusers_id' => '1',
+                'allergy' => 'エビ'
+            ],
+        ]);
     }
 }
