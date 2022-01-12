@@ -27,6 +27,12 @@ class ingredientsTableSeeder extends Seeder
                 'content' => '玉ねぎ',
                 'quantity' => '1個',
             ],
+
+            [
+                'recipes_id' => '1',
+                'content' => '卵',
+                'quantity' => '2個',
+            ],
         ]);
     }
 }

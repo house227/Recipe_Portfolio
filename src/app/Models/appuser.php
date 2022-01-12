@@ -12,11 +12,12 @@ class appuser extends Model
     //allergysTableのリレーション
     public function allergys()
     {
-        return $this->hasOne('App\Models\allergy');
+        return $this->hasMany('App\Models\allergy');
     }
 
+    //recipesTableのリレーション
     public function recipes()
     {
-        return $this->hasOne('App\Models\recipe');
+        return $this->hasMany('App\Models\recipe');
     }
 }

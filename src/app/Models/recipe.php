@@ -9,6 +9,7 @@ class recipe extends Model
 {
     use HasFactory;
 
+    //ingredientsTable(食材)のリレーション
     public function ingredients()
     {
         return $this->hasOne('App\Models\ingredient');
