@@ -49,40 +49,57 @@
 
         <!-- コメント欄 -->
 
-        <h1>[コメント]</h1>
+        <h1>[コメント] <span style="color:red;">※コメントするにはログインが必要です</span> </h1>
 
         <!-- コメントテーブルからレシピIDが一致するコメントを取って来て表示させる -->
         <!-- 下記コードをforで囲めば出来る？？ -->
-
         <div id="comment-all">
           <div class="comment">
 
-            <div class="comment-text">
+            <div class="comment-block">
               <!-- ユーザーテーブルから一致する画像を持ってくる -->
               <img src="photo/person.jpeg" alt="人" width="80" height="80">
             </div>
 
-            <div class="comment-text">
+            <div class="comment-block">
               <!-- ユーザーテーブルからコメントテーブルの外部キーと一致する名前を持ってくる -->
-              <p style="margin-top:0px; margin-bottom:0px">ユーザーネームA</p>
+              <p class="comment-user">ユーザーネームA</p>
               <!-- コメントテーブルからユーザーIDが一致するコメントを入れる -->
-              <p style="margin-left:15px; margin-bottom:0px; margin-top:10px; font-size:20px">コメントしました。</p>
+              <p class="comment-text">コメントしました。</p>
             </div>
 
           </div>
 
           <!-- コメント2つ目（テスト用 -->
           <div class="comment">
-            <div class="comment-text">
+            <div class="comment-block">
               <img src="photo/person.jpeg" alt="人" width="80" height="80">
             </div>
 
-            <div class="comment-text">
-              <p>ユーザーネームA</p>
-              <p>コメントしました。</p>
+            <div class="comment-block">
+              <p class="comment-user">ユーザーネームB</p>
+              <p class="comment-text">コメントしました。</p>
             </div>
           </div>
+          <p style="margin-left:550px; color:blue;">もっとみる...</p>
         </div>
+
+        <hr>
+
+        <!-- レシピ投稿者表示とフォローボタン -->
+          <p id="recipe-user-title">～レシピの投稿者さん～</p>
+          <p style="color:red; text-align:center; font-size:20px;">※フォローするにはログインが必要です</p>
+          <div id="recipe-user">
+            <div class="recipe-user-block">
+              <img src="photo/person.jpeg" alt="人" width="110" height="110">
+            </div>
+            <div class="recipe-user-block">
+              <p class="recipe-user-name">ユーザーネームB</p>
+              <router-link to="/LoginTop">
+              <button id="recipe-user-follow" >フォロー</button>
+              </router-link>
+            </div>
+          </div>
 
     </body>
   </div>
@@ -195,10 +212,7 @@ export default {
 
   /* コメント */
 
-
-  #comment-all{
-    
-  }
+  
 
   .comment{
     display: flex;
@@ -207,8 +221,67 @@ export default {
     margin-bottom: 15px;
     margin-left: 40px;
   }
-  .comment-text{
+  .comment-block{
     display: inline-block;
     flex-direction:column;
+  }
+  .comment-user{
+    margin-top:0px; 
+    margin-bottom:0px;
+    font-size: 21px;
+    font-weight: bold;
+  }
+  .comment-text{
+    margin-left:15px; 
+    margin-bottom:0px;
+    margin-top:10px;
+    font-size:22px
+  }
+
+
+  /* レシピ投稿者 */
+  #recipe-user-title{
+    font-size:35px; 
+    font-weight: bold;
+    text-align:center;
+    margin-bottom: 0px;
+  }
+
+  #recipe-user{
+    border: 1px solid black;
+    width: 50%;
+    margin-bottom: 15px;
+    margin-left: 320px;
+    margin-top:30px;
+    position: relative;
+  }
+
+  .recipe-user-block{
+    display: inline-block;
+    flex-direction:column;
+  }
+  .recipe-user-name{
+    margin:0px auto 0px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    left: 25%;
+    top: 5%;
+  }
+  #recipe-user-follow{
+    text-decoration: none;
+    margin: 10px auto 0px 15px;
+    text-align: center;
+    border: 1px solid rgb(34, 146, 146);
+    border-radius: 10%;
+    color: rgb(34, 146, 146);
+    background-color: white;
+    width: 25%;
+    cursor: hand;
+    cursor: pointer;
+    font-size:24px;
+    position: absolute;
+    left: 35%;
+    top: 50%;
   }
 </style>
