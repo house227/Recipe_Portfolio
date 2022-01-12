@@ -14,8 +14,11 @@
             <!-- おすすめの料理 -->
             <div id="recommend-recipe">
                 <h1>★おすすめのレシピ</h1>
-                <!-- このimgの所にはDBから取得したレシピ画像を配置(現在は仮で画像を直接配置) -->
-                <img src="photo/Recipe1.jpg" alt="レシピ1" width="200" height="150">
+                <!-- このimgの所にはDBから取得したレシピを配置(現在は仮で画像を直接配置) -->
+                <!-- リンクも仮で1カ所のみとする(データのやり取りが出来たら編集) -->
+                <a href="/RecipeViewGuest">
+                    <img src="photo/Recipe1.jpg" alt="レシピ1" width="200" height="150">
+                </a>
                 <img src="photo/Recipe2.jpg" alt="レシピ2" width="200" height="150">
                 <img src="photo/Recipe3.jpg" alt="レシピ3" width="200" height="150">
                 <img src="photo/Recipe5.jpg" alt="レシピ5" width="200" height="150">

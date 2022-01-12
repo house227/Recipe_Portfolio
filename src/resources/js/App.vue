@@ -4,6 +4,9 @@
         <!-- ヘッダー -->
         <HeaderGuestTop v-if="this.$route.path === '/'"/>
 
+        <HeaderGuestTop v-else-if="this.$route.path === '/RecipeViewGuest'"/>
+
+
         <HeaderUserCreate v-else-if="this.$route.path === '/NewUserCreate'" />
         <HeaderUserCreate v-else-if="this.$route.path === '/SendMail'" />
         <HeaderUserCreate v-else-if="this.$route.path === '/CreateIndex'" />

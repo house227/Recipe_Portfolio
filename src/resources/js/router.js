@@ -1,16 +1,21 @@
 import {createRouter, createWebHistory} from 'vue-router'
 // 必要なコンポーネントをインポート
 
+// ゲストでの表示
 import GuestTop from './components/Top/GuestTop'
+import RecipeView_Guest from './components/RecipeView/RecipeView_Guest'
 
+// 新規登録
 import UserCreate_Top from './components/NewUserCreate/UserCreate_Top'
 import UserCreate_SendMail from './components/NewUserCreate/UserCreate_SendMail'
 import UserCreate_Index from './components/NewUserCreate/UserCreate_Index'
 import UserCreate_Confirm from './components/NewUserCreate/UserCreate_Confirm'
 import UserCreate_End from './components/NewUserCreate/UserCreate_End'
 
+// ログイン
 import LoginTop from './components/Login/Login_Top'
 
+// パスワード再設定
 import ResetPass from './components/ResetPass/ResetPass_Top'
 import ResetPass_SendMail from './components/ResetPass/ResetPass_SendMail'
 import ResetPass_Index from './components/ResetPass/ResetPass_Index'
@@ -89,6 +94,12 @@ export const router = createRouter({
             path: '/ResetEnd' ,
             name: 'ResetPass_end' ,
             component: ResetPass_End,
+        },
+        {
+            // ゲスト用レシピ表示
+            path: '/RecipeViewGuest',
+            name: 'RecipeView_Guest',
+            component: RecipeView_Guest
         },
         
     ]
