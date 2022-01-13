@@ -2,24 +2,40 @@ import {createRouter, createWebHistory} from 'vue-router'
 // 必要なコンポーネントをインポート
 
 // ゲストでの表示
+    //Top画面 
 import GuestTop from './components/Top/GuestTop'
+    // レシピ表示
 import RecipeView_Guest from './components/RecipeView/RecipeView_Guest'
 
 // 新規登録
+    // 新規登録Topページ
 import UserCreate_Top from './components/NewUserCreate/UserCreate_Top'
+    // メール送信完了ページ
 import UserCreate_SendMail from './components/NewUserCreate/UserCreate_SendMail'
+    // 詳細なアカウント登録（メールのURLから飛ぶ先）
 import UserCreate_Index from './components/NewUserCreate/UserCreate_Index'
+    // 確認画面
 import UserCreate_Confirm from './components/NewUserCreate/UserCreate_Confirm'
+    // 登録完了通知画面
 import UserCreate_End from './components/NewUserCreate/UserCreate_End'
 
 // ログイン
+    // ログインTop画面
 import LoginTop from './components/Login/Login_Top'
 
 // パスワード再設定
+    // パスワード再設定Top画面
 import ResetPass from './components/ResetPass/ResetPass_Top'
+    // メール送信完了ページ
 import ResetPass_SendMail from './components/ResetPass/ResetPass_SendMail'
+    // パスワード再設定画面
 import ResetPass_Index from './components/ResetPass/ResetPass_Index'
+    // 完了通知画面
 import ResetPass_End from './components/ResetPass/ResetPass_End'
+
+// レシピ作成
+    // レシピ投稿Top画面
+import MakeRecipe_Top from './components/MakeRecipe/MakeRecipe_Top'
 
 
 
@@ -99,7 +115,13 @@ export const router = createRouter({
             // ゲスト用レシピ表示
             path: '/RecipeViewGuest',
             name: 'RecipeView_Guest',
-            component: RecipeView_Guest
+            component: RecipeView_Guest,
+        },
+        {
+            // レシピ作成ページ
+            path: '/MakeRecipeTop',
+            name: 'MakeRecipe_Top',
+            component: MakeRecipe_Top,
         },
         
     ]
