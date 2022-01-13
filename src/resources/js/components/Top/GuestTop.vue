@@ -106,25 +106,26 @@
                     <h2 style="margin-top:0px;">ランダムで献立を作成します！</h2>
                 </div>
 
-            <!-- 送信先/送信方法は要変更 -->
-            <form action="/" method="post">
-                <!-- 料理ジャンル選択 -->
-                <select name="recipe-genre" style="font-size:35px">
-                    <option value="全て" selected>全て</option>
-                    <option value="和食">和食</option>
-                    <option value="洋食">洋食</option>
-                    <option value="中華">中華</option>
-                    <option value="韓国">韓国料理</option>
-                    <option value="イタリアン">イタリアン</option>
-                    <option value="フレンチ">フレンチ</option>
-                    <option value="その他">その他</option>
-                </select>
-                <input type="submit" value="検索!!" style="font-size: 28px">
-
-                
-            </form>
+                <!-- 送信先/送信方法は要変更 -->
+                <form action="/" method="post">
+                    <!-- 料理ジャンル選択 -->
+                    <select name="recipe-genre" style="font-size:35px">
+                        <option value="全て" selected>全て</option>
+                        <option value="和食">和食</option>
+                        <option value="洋食">洋食</option>
+                        <option value="中華">中華</option>
+                        <option value="韓国">韓国料理</option>
+                        <option value="イタリアン">イタリアン</option>
+                        <option value="フレンチ">フレンチ</option>
+                        <option value="その他">その他</option>
+                    </select>
+                    <input type="submit" value="検索!!" style="font-size: 28px">
+                </form>
             </div>
             
+            <router-link to="/MakeRecipeTop" style="font-size:30px; ">
+                レシピ投稿（仮ボタン）
+            </router-link>
         </body>
     </div>
 </template>

@@ -96,7 +96,7 @@
             <div class="recipe-user-block">
               <p class="recipe-user-name">ユーザーネームB</p>
               <router-link to="/LoginTop">
-              <button id="recipe-user-follow" >フォロー</button>
+                <button id="recipe-user-follow" >フォロー</button>
               </router-link>
             </div>
           </div>
@@ -189,18 +189,20 @@ export default {
 
 
   /* 作り方 */
-
+    /* 全体 */
   #procedure{
     display: inline-block;
     font-size: 25px;
     text-align: center;
   }
+    /* リスト親 */
   #procedure ul{
     text-align: center;
     margin-right: auto;
     margin-left: auto;
     justify-content: center;
   }
+    /* リスト子 */
     #procedure li{
     list-style-type: decimal;
     font-size: 35px;
@@ -213,7 +215,7 @@ export default {
   /* コメント */
 
   
-
+    /* コメントの１ブロック */
   .comment{
     display: flex;
     border: 1px solid black;
@@ -221,16 +223,19 @@ export default {
     margin-bottom: 15px;
     margin-left: 40px;
   }
+    /* ブロック内のブロック */
   .comment-block{
     display: inline-block;
     flex-direction:column;
   }
+    /* ユーザーネーム */
   .comment-user{
     margin-top:0px; 
     margin-bottom:0px;
     font-size: 21px;
     font-weight: bold;
   }
+    /* 本文 */
   .comment-text{
     margin-left:15px; 
     margin-bottom:0px;
@@ -240,6 +245,7 @@ export default {
 
 
   /* レシピ投稿者 */
+    /* タイトル */
   #recipe-user-title{
     font-size:35px; 
     font-weight: bold;
@@ -247,6 +253,7 @@ export default {
     margin-bottom: 0px;
   }
 
+    /* 投稿者ブロック */
   #recipe-user{
     border: 1px solid black;
     width: 50%;
@@ -256,10 +263,12 @@ export default {
     position: relative;
   }
 
+    /* ブロック内のブロック */
   .recipe-user-block{
     display: inline-block;
     flex-direction:column;
   }
+    /* ユーザーネーム */
   .recipe-user-name{
     margin:0px auto 0px 20px;
     font-size: 25px;
@@ -268,6 +277,7 @@ export default {
     left: 25%;
     top: 5%;
   }
+    /* フォローボタン */
   #recipe-user-follow{
     text-decoration: none;
     margin: 10px auto 0px 15px;
