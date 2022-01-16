@@ -3,26 +3,29 @@
     <body>
       <a @click="$router.go(-1)" id="back">←前へ戻る</a>
 
-      <!-- 内容(画像や作り方等)はレシピテーブルや手順テーブルから取り出してくる -->
-      <h1 id="recipe-title">タイトル(DBから取得したタイトル)</h1>
+      <div id="make-recipe-top">
 
-      <div id="recipe-top">
-          <div id="recipe-img" style="padding-right:100px;">
+        <!-- クリックで画像をアップロードして表示させる -->
+        <div id="img">
+          <img src="photo/Camera.png" alt="画像" width="128" height="128">
+        </div>
 
-            <img src="photo/Recipe1.jpg" alt="レシピ1" width="460" height="310">
-          </div>
+        <div id="title">
+          <h1 id="title-text">タイトル</h1>
+            <select name="recipe-genre" style="font-size:35px">
+              <option value="全て" selected>全て</option>
+              <option value="和食">和食</option>
+              <option value="洋食">洋食</option>
+              <option value="中華">中華</option>
+              <option value="韓国">韓国料理</option>
+              <option value="イタリアン">イタリアン</option>
+              <option value="フレンチ">フレンチ</option>
+              <option value="その他">その他</option>
+          </select>
+        </div>
 
-          <div id="material" style="padding-top:20px;">
-            <h2>～材料～</h2>
-            <ul>
-              <!-- 食材と数量はそれぞれ食材テーブルから引っ張ってくる -->
-              <li>牛肉   200g</li>
-              <li>ソース1   大さじ1</li>
-              <li>ソース2   大さじ2</li>
-            </ul>
-          </div>
+
       </div>
-
         <hr>
 
 
@@ -81,37 +84,20 @@ export default {
 
   }
 
-
-
-  /* レシピ名 */
-  #recipe-title{
-    text-align:center; 
-    margin-bottom:10px; 
-    font-size: 40px;
-  }
-
-  /* 画像と材料表示部分 */
-  #recipe-top{
+  #make-recipe-top{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
   }
+  #img{
+    border: 1px solid black;
+    width: 30%;
+    padding: 40px 15px 40px 15px ;
+    text-align: center;
+    margin-right: 30px;
+  }
 
-  /* 材料 */
-  #material h2{
-    font-size: 35px;
-    margin-bottom: 0px;
-  }
-  #material ul{
-    font-size: 25px;
-    font-weight: bold;
-  }
-  #material li{
-    margin-bottom: 10px;
-  }
   
-
-
   /* 作り方 */
     /* 全体 */
   #procedure{
