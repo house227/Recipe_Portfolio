@@ -109,7 +109,7 @@
                 <!-- 送信先/送信方法は要変更 -->
                 <form action="/" method="post">
                     <!-- 料理ジャンル選択 -->
-                    <select name="recipe-genre" style="font-size:35px">
+                    <select name="recipe_type" style="font-size:35px">
                         <option value="全て" selected>全て</option>
                         <option value="和食">和食</option>
                         <option value="洋食">洋食</option>

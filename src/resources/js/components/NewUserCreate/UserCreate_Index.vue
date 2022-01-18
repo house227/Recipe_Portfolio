@@ -18,9 +18,11 @@
         <!-- パスワード　※ハッシュ化で暗号化しDBへ登録 -->
           <h2 style="margin-bottom:0px; padding-right:190px;">パスワード</h2>
           <input type="email" name="new-mail" style="width:300px; height:25px; margin-top:0px;">
+          
         <!-- パスワード確認 -->
           <h2 style="margin-bottom:0px; padding-right:140px;">パスワード確認</h2>
           <input type="email" name="new-mail" style="width:300px; height:25px; margin-top:0px;">
+
         <!-- アレルギー -->
         <h2 style="margin-bottom:0px; padding-right:190px;">アレルギー</h2>
         <li v-for="(item, id) in items" :key="id">
