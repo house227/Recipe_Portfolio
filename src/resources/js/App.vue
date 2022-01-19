@@ -38,6 +38,7 @@
         <!-- レシピ投稿 -->
             <!-- レシピ作成ページ -->
         <HeaderUserTop v-else-if="this.$route.path === '/MakeRecipeTop'" />
+        <HeaderUserTop v-else-if="this.$route.path === '/MakeRecipePreview'" />
 
         <!-- ここにルート別のコンポーネントが入る -->
         <router-view></router-view>
