@@ -17,7 +17,6 @@ class CreateIngredientsTable extends Migration
             $table->increments('id');
             $table->string('recipes_id');
             $table->string('content');//材料名
-            $table->string('quantity');//数量
             $table->timestamps();
         });
     }

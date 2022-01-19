@@ -9,13 +9,13 @@ class appuser extends Model
 {
     use HasFactory;
 
-    //allergysTableのリレーション
+    //「1対多」の「多」側→メソッド名は複数形
     public function allergys()
     {
         return $this->hasMany('App\Models\allergy');
     }
 
-    //recipesTableのリレーション
+    //「1対多」の「多」側→メソッド名は複数形
     public function recipes()
     {
         return $this->hasMany('App\Models\recipe');

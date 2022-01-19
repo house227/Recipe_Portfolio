@@ -19,19 +19,16 @@ class ingredientsTableSeeder extends Seeder
             [
                 'recipes_id' => '1',
                 'content' => '鶏肉',
-                'quantity' => '200g',
             ],
 
             [
                 'recipes_id' => '1',
                 'content' => '玉ねぎ',
-                'quantity' => '1個',
             ],
 
             [
                 'recipes_id' => '1',
                 'content' => '卵',
-                'quantity' => '2個',
             ],
         ]);
     }
