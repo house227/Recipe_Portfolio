@@ -290,6 +290,12 @@
             height: 2em;
         }
 
+        /* ゴミ箱 */
+        #box-img{
+            cursor: hand;
+            cursor: pointer;
+        }
+
         /* 検索コメント */
         #search-text{
             width: 470px;

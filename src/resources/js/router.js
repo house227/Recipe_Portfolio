@@ -36,6 +36,8 @@ import ResetPass_End from './components/ResetPass/ResetPass_End'
 // レシピ作成
     // レシピ投稿Top画面
 import MakeRecipe_Top from './components/MakeRecipe/MakeRecipe_Top'
+    // レシピプレビュー画面
+import MakeRecipe_Preview from './components/MakeRecipe/MakeRecipe_Preview'
 
 
 
@@ -122,6 +124,11 @@ export const router = createRouter({
             path: '/MakeRecipeTop',
             name: 'MakeRecipe_Top',
             component: MakeRecipe_Top,
+        },
+        {
+            path: '/MakeRecipePreview',
+            name: 'MakeRecipe_Preview',
+            component: MakeRecipe_Preview,
         },
         
     ]
