@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ingredientsTableSeeder extends Seeder
+
+class proceduresTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,22 +15,24 @@ class ingredientsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ingredients')->insert([
+        //
+        DB::table('procedures')->insert([
 
             [
                 'recipes_id' => '1',
-                'content' => '鶏肉',
+                'procedure' => '玉ねぎを切る',
             ],
 
             [
                 'recipes_id' => '1',
-                'content' => '玉ねぎ',
+                'procedure' => '鶏肉を切る',
             ],
 
             [
                 'recipes_id' => '1',
-                'content' => '卵',
+                'procedure' => '卵を割って溶く',
             ],
         ]);
+
     }
 }

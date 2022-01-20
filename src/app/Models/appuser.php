@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class appuser extends Model
 {
     use HasFactory;
+
+    //「1対多」の「多」側→メソッド名は複数形
+    public function allergys()
+    {
+        return $this->hasMany('App\Models\allergy');
+    }
+
+    //「1対多」の「多」側→メソッド名は複数形
+    public function recipes()
+    {
+        return $this->hasMany('App\Models\recipe');
+    }
 }
