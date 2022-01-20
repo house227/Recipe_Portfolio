@@ -21,4 +21,11 @@ class recipe extends Model
     {
         return $this->belongsToMany('App\Models\ingredient');
     }
+
+    //手順のリレーション
+    //１対多の多を引っ張ってくる
+    public function procedures()
+    {
+        return $this->hasMany('App\Models\procedure')
+    }
 }
