@@ -63,9 +63,10 @@
 
           <!-- activeがtrueならpreviewOnクラスを付与falseなら逆 -->
         <router-link to="/MakeRecipePreview"
-          :class="{previewOn:active===true, previewOff:active===false}" 
+          :class="{mouseOn:active===true, mouseOff:active===false}" 
           @mouseover="active=true" 
           @mouseout="active=false"
+          id="preview"
           >
         プレビュー
         </router-link>
@@ -271,28 +272,30 @@ export default{
 
   /* 作り方ここまで */
 
-  /* プレビュー */
-    .previewOn{
+  /* レシピ投稿ボタン */
+    /* マウスオン時共通 */
+    .mouseOn{
     cursor: hand;
     cursor: pointer;
     border: 1px solid red;
     color: red;
     border-radius: 20px; 
-    width: 20%;
     text-align: center;
-    margin: 60px 0 0 400px;
     padding: 5px 20px 5px 20px;
-    font-size: 35px;
   }
-  .previewOff{
+    /* マウスオフ時共通 */
+  .mouseOff{
     border: 1px solid black;
     color: black;
     border-radius: 20px; 
-    width: 20%;
     text-align: center;
-    margin: 60px 0 0 400px;
     padding: 5px 20px 5px 20px;
+  }
+  /* ページ別での設定 */
+  #preview{
     font-size: 35px;
+    margin: 60px 0 0 400px;
+    width: 20%;
   }
 
 </style>

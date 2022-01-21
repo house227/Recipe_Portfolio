@@ -58,7 +58,7 @@
 
             <div class="comment-block">
               <!-- ユーザーテーブルから一致する画像を持ってくる -->
-              <img src="photo/person.jpeg" alt="人" width="80" height="80">
+              <img src="photo/Avatar.jpeg" alt="人" width="80" height="80">
             </div>
 
             <div class="comment-block">
@@ -73,7 +73,7 @@
           <!-- コメント2つ目（テスト用 -->
           <div class="comment">
             <div class="comment-block">
-              <img src="photo/person.jpeg" alt="人" width="80" height="80">
+              <img src="photo/Avatar.jpeg" alt="人" width="80" height="80">
             </div>
 
             <div class="comment-block">
@@ -91,7 +91,7 @@
           <p style="color:red; text-align:center; font-size:20px;">※フォローするにはログインが必要です</p>
           <div id="recipe-user">
             <div class="recipe-user-block">
-              <img src="photo/person.jpeg" alt="人" width="110" height="110">
+              <img src="photo/Avatar.jpeg" alt="人" width="110" height="110">
             </div>
             <div class="recipe-user-block">
               <p class="recipe-user-name">ユーザーネームB</p>
