@@ -53,9 +53,10 @@
 
 
         <router-link to="/mypage"
-          :class="{previewOn:active===true, previewOff:active===false}" 
+          :class="{mouseOn:active===true, mouseOff:active===false}" 
           @mouseover="active=true" 
           @mouseout="active=false"
+          id="send-recipe"
         >
         投稿する！！
         </router-link>
@@ -173,27 +174,13 @@ export default {
   }
 
 
-    /* プレビュー */
-  .previewOn{
-    cursor: hand;
-    cursor: pointer;
-    border: 1px solid red;
-    color: red;
-    border-radius: 20px; 
-    width: 20%;
-    text-align: center;
-    margin: 60px 0 0 400px;
-    padding: 5px 20px 5px 20px;
+    /* プレビューボタン */
+    /* ボタン自体の設定はレシピを投稿側に記述 */
+  
+    /* ページ別でのボタン設定 */
+  #send-recipe{
     font-size: 35px;
-  }
-  .previewOff{
-    border: 1px solid black;
-    color: black;
-    border-radius: 20px; 
-    width: 20%;
-    text-align: center;
     margin: 60px 0 0 400px;
-    padding: 5px 20px 5px 20px;
-    font-size: 35px;
+    width: 20%;
   }
 </style>

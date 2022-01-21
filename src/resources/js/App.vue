@@ -8,6 +8,9 @@
         <HeaderGuestTop v-if="this.$route.path === '/'"/>
             <!-- ゲスト用レシピ表示ページ -->
         <HeaderGuestTop v-else-if="this.$route.path === '/RecipeViewGuest'"/>
+            <!-- ユーザー用レシピ表示ページ -->
+        <HeaderUserTop v-else-if="this.$route.path === '/UserTop'" />
+
 
         <!-- 新規登録 -->
             <!-- 新規登録 -->
@@ -24,6 +27,18 @@
         <!-- ログイン -->
             <!-- ログインTopページ -->
         <HeaderLogin v-else-if="this.$route.path === '/LoginTop'" />
+
+        <!-- マイページ -->
+            <!-- マイページTop -->
+        <HeaderUserTop v-else-if="this.$route.path === '/MypageTop'" />
+            <!-- マイレシピ一覧画面 -->
+        <HeaderUserTop v-else-if="this.$route.path === '/MypageRecipe'" />
+            <!-- お気に入り一覧画面 -->
+        <HeaderUserTop v-else-if="this.$route.path === '/MypageFavorite'" />
+            <!-- コメント一覧画面 -->
+        <HeaderUserTop v-else-if="this.$route.path === '/MypageNewComment'" />
+
+
 
         <!-- パスワード再設定 -->
             <!-- パスワード再設定Topページ -->
