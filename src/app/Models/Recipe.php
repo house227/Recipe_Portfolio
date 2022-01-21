@@ -13,19 +13,19 @@ class recipe extends Model
     //１対 多 の１側なので単数形
     public function appuser()
     {
-        return $this->belongsTo('App\Models\appuser');
+        return $this->belongsTo('App\Models\Appuser');
     }
 
     //利用食材中間テーブルのリレーションの定義
     public function ingredients()
     {
-        return $this->belongsToMany('App\Models\ingredient');
+        return $this->belongsToMany('App\Models\Ingredient');
     }
 
     //手順のリレーション
     //１対多の多を引っ張ってくる
     public function procedures()
     {
-        return $this->hasMany('App\Models\procedure')
+        return $this->hasMany('App\Models\Procedure')
     }
 }

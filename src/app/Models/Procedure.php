@@ -12,6 +12,6 @@ class procedure extends Model
     //1つのレシピとのリレーション
     public function recipe()
     {
-        return $this->belongsTo('App\Models\recipe');
+        return $this->belongsTo('App\Models\Recipe');
     }
 }

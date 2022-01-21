@@ -12,12 +12,12 @@ class appuser extends Model
     //「1対多」の「多」側→メソッド名は複数形
     public function allergys()
     {
-        return $this->hasMany('App\Models\allergy');
+        return $this->hasMany('App\Models\Allergy');
     }
 
     //「1対多」の「多」側→メソッド名は複数形
     public function recipes()
     {
-        return $this->hasMany('App\Models\recipe');
+        return $this->hasMany('App\Models\Recipe');
     }
 }

@@ -12,6 +12,6 @@ class ingredient extends Model
     //利用食材中間テーブルのリレーションの定義
     public function recipes()
     {
-        return $this->belongsToMany('App\Models\recipe')
+        return $this->belongsToMany('App\Models\Recipe')
     }
 }

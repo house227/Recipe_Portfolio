@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\allergy;
+use App\Models\Allergy;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

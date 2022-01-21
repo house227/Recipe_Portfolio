@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\appuser;
+use App\Models\Appuser;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

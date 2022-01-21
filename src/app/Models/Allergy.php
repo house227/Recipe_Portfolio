@@ -13,6 +13,6 @@ class allergy extends Model
     //1対多の1側なので単数形
     public function appuser()
     {
-        return $this->belongsTo('App\Models\appuser');
+        return $this->belongsTo('App\Models\Appuser');
     }
 }
