@@ -8,7 +8,7 @@
         <h2 style="margin-bottom:0px; padding-right:60px;">ご登録メールアドレス</h2>
 
         <!-- 送信先/内容は要修正 -->
-        <form action="/LoginTop" >
+        <form action="/UserTop" >
           <input type="email" name="mail" style="width:300px; height:25px; margin-top:0px;"> 
           <h2 style="margin-bottom:0px; padding-right:180px;">パスワード</h2>
           <input type="password" name="password" style="width:300px; height:25px; margin-top:0px;">

@@ -3,9 +3,9 @@
         <header>
             <!-- route-link　でrouterにあるリンクを使用してページを切り替える -->
             <router-link to="/" id="top_header">Todays Recipe</router-link>
-            <h2 id="guest">ようこそゲストさん</h2>
+            <h2 id="guest">ようこそ○○さん</h2>
             <nav>
-            <router-link to="/" class="mypage-url">マイページ</router-link>
+            <router-link to="/MypageTop" class="mypage-url">マイページ</router-link>
             
               <!-- この先でログアウト処理を行う -->
             <router-link to="/" class="login-url">ログアウト</router-link>

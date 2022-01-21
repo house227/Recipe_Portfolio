@@ -83,15 +83,16 @@
 
                     <!-- ゲスト用ログイン/新規登録の促し -->
                     <div id="prompt">
-                        <h2>アカウント登録<span>/</span>ログイン<span>をして</span></h2>
-                        <h2 id="allergy-text">アレルギー情報<span>を登録しよう！</span></h2>
+                        <h2>あなたのレシピを <br> 共有してみませんか？</h2>
 
-                        <!-- 新規登録かログインを押せる -->
-                        <div id="route">
-                            <!-- 仮でPタグだが、Routeに変えてページ以降出来るようにする -->
-                            <a href="/NewUserCreate" id="route-tag1">新規登録</a>
-                            <a href="/LoginTop" id="route-tag2">ログイン</a>
-                        </div>
+                        <!-- activeがtrueならpreviewOnクラスを付与falseなら逆 -->
+                        <router-link to="/MakeRecipeTop"
+                            :class="{makeRecipeOn:active===true, makeRecipeOff:active===false}" 
+                            @mouseover="active=true" 
+                            @mouseout="active=false"
+                        >
+                            レシピを投稿!!
+                        </router-link>
                     </div>
                 </div>
                 <hr>
@@ -138,6 +139,7 @@
                 items: [''],
                 // 食材用inputの最大個数
                 maxInput: 5,
+                active:false,
             }
         },
         methods: {
@@ -238,138 +240,161 @@
         padding-left: 800px;
     }
 
-        /* 「おすすめレシピ」ここまで */
+    /* 「おすすめレシピ」ここまで */
 
 
-        /* 「レシピ検索」ここから */
+    /* 「レシピ検索」ここから */
 
-        /* 全体 */
-        #search-recipe{
-            text-align: center;
-            position: relative;
-        }
+    /* 全体 */
+    #search-recipe{
+        text-align: center;
+        position: relative;
+    }
 
-        /* タイトル */
-        #search-recipe h1{
-            color: rgb(255, 145, 0);
-            text-decoration:underline rgb(255, 145, 0);
-            padding-right: 700px;
-        }
+    /* タイトル */
+    #search-recipe h1{
+        color: rgb(255, 145, 0);
+        text-decoration:underline rgb(255, 145, 0);
+        padding-right: 700px;
+    }
 
-        /* フォーム欄個別調整用1 */
-        #form1{
-            padding-left: 30px;
-            margin-bottom: 0px;
-        }
+    /* フォーム欄個別調整用1 */
+    #form1{
+        padding-left: 30px;
+        margin-bottom: 0px;
+    }
 
-        /* フォーム欄個別調整用2 */
-        #form2{
-            padding-right: 50px;
-            margin-bottom: 0px;
-        }
-        #form-text{
-            font-size: 15px;
-            margin-bottom: 0px;
-        }
+    /* フォーム欄個別調整用2 */
+    #form2{
+        padding-right: 50px;
+        margin-bottom: 0px;
+    }
+    #form-text{
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
 
-        /* 検索ボタン */
-        #form2-button{
-            margin-left: 200px;
-            font-size: 20px;
-        }
+    /* 検索ボタン */
+    #form2-button{
+        margin-left: 200px;
+        font-size: 20px;
+    }
 
-        /* ジャンル用プルダウンメニュー */
-        .recipe-genre{
-            font-size:20px;
-            margin-bottom: 10px;
-        }
+    /* ジャンル用プルダウンメニュー */
+    .recipe-genre{
+        font-size:20px;
+        margin-bottom: 10px;
+    }
 
-        /* テキストフォーム */
-        .text-form{
-            width: 17em;
-            height: 2em;
-        }
+    /* テキストフォーム */
+    .text-form{
+        width: 17em;
+        height: 2em;
+    }
 
-        /* ゴミ箱 */
-        #box-img{
-            cursor: hand;
-            cursor: pointer;
-        }
+    /* ゴミ箱 */
+    #box-img{
+        cursor: hand;
+        cursor: pointer;
+    }
 
-        /* 検索コメント */
-        #search-text{
-            width: 470px;
-            color: red;
-            border: 1px solid black;
-            border-radius: 10px; 
-            padding: 5px;
-            position: absolute; left:50%; bottom:67%;
-        }
-        /* 検索コメント内SPAN */
-        #search-text span{
-            font-size: 20px;
-            color: black;
-        }
+    /* 検索コメント */
+    #search-text{
+        width: 470px;
+        color: red;
+        border: 1px solid black;
+        border-radius: 10px; 
+        padding: 5px;
+        position: absolute; left:50%; bottom:67%;
+    }
+    /* 検索コメント内SPAN */
+    #search-text span{
+        font-size: 20px;
+        color: black;
+    }
 
-        /* ログイン促し欄 */
-        #prompt{
-            text-align: center;
-            color: white;
-            background-color: darksalmon;
-            border: 1px solid black;
-            border-radius: 20px; 
-            position: absolute; left:60%; bottom:5%;
-            padding: 5px;
-        }
-        #prompt span{
-            color: black;
-        }
-        #allergy-text{
-            color: yellow;
-        }
-        /* 新規登録/ログインの選択欄 */
-        #route{
-            display: flex;
-            justify-content: center;
-            gap: 2px 15px;
-            border: 1px solid black;
-            border-radius: 20px; 
-            width: 200px;
-            background-color: white;
-            font-size: 20px;
-            margin-left: 70px;
-            
-        }
-        #route-tag1{
-            color: blue;
-        }
-        #route-tag2{
-            color: red;
-        }
+    /* ログイン促し欄 */
+    #prompt{
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        background-color: rgb(255, 67, 61);
+        border: 1px solid black;
+        border-radius: 20px; 
+        position: absolute; left:60%; bottom:5%;
+        padding: 20px;
+    }
+    #allergy-text{
+        color: yellow;
+    }
+    /* 新規登録/ログインの選択欄 */
+    #route{
+        display: flex;
+        justify-content: center;
+        gap: 2px 15px;
+        border: 1px solid black;
+        border-radius: 20px; 
+        width: 200px;
+        background-color: white;
+        font-size: 20px;
+        margin-left: 70px;
+        
+    }
+    #route-tag1{
+        color: blue;
+    }
+    #route-tag2{
+        color: red;
+    }
 
-        /* 「レシピ検索」ここまで */
+    /* 「レシピ検索」ここまで */
 
 
-        /* 「献立作成」ここから */
+    /* 「献立作成」ここから */
 
-        /* 全体 */
-        #auto-recipe{
-            text-align: center;
-        }
+    /* 全体 */
+    #auto-recipe{
+        text-align: center;
+    }
 
-        /* タイトル */
-        #auto-recipe h1{
-            color: rgb(255, 145, 0);
-            text-decoration:underline rgb(255, 145, 0);
-            font-size: 40px;
-        }
+    /* タイトル */
+    #auto-recipe h1{
+        color: rgb(255, 145, 0);
+        text-decoration:underline rgb(255, 145, 0);
+        font-size: 40px;
+    }
 
-        #strong-text{
-            color:red; 
-            margin-top:0px;
-            margin-bottom:0px;
-            font-size: 40px;
-        }
+    #strong-text{
+        color:red; 
+        margin-top:0px;
+        margin-bottom:0px;
+        font-size: 40px;
+    }
 
-        /* 「献立作成」ここまで */
+    /* 「献立作成」ここまで */
+
+    /* プレビュー */
+    .makeRecipeOn{
+        cursor: hand;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: white;
+        color: red;
+        border-radius: 20px; 
+        width: 10%;
+        text-align: center;
+
+        padding: 5px 20px 5px 20px;
+        font-size: 25px;
+     }
+    .makeRecipeOff{
+        border: 1px solid white;
+        color: white;
+        border-radius: 20px; 
+        background-color: rgb(194, 2, 2);
+        width: 20%;
+        text-align: center;
+        padding: 5px 20px 5px 20px;
+        font-size: 25px;
+    }
 </style>
