@@ -26,7 +26,7 @@ class appusersTableSeeder extends Seeder
         DB::table('appusers')->insert($param);
         
         //fakerの定義
-        appuser::factory()->count(3)->create();
+        Appuser::factory()->count(3)->create();
 
     }
 }
