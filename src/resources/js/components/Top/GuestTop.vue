@@ -33,7 +33,7 @@
                 <!-- レシピ名/ユーザー名で検索 -->
                 <!-- 送信方法/送信先は要編集 -->
                 <div style="padding-right: 500px">
-                    <form action="/" method="post">
+                    <form action="/recipes" method="get">
                         <h2 id="form1">●レシピ名/ユーザー名 から検索</h2> 
                         <input type="text" name="main_search"  class="text-form" style="margin-left:60px">
                         <input type="submit" value="検索!!" style="font-size: 20px">

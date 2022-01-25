@@ -55,6 +55,9 @@ import {createRouter, createWebHistory} from 'vue-router'
     // 完了通知画面
     import ResetPass_End from './components/ResetPass/ResetPass_End'
 
+// 検索
+    // 検索結果画面
+    import Name_Search from './components/Search/Search_Recipe'
 
 
 export const router = createRouter({
@@ -176,6 +179,11 @@ export const router = createRouter({
             name: 'Mypage_NewComment',
             component: Mypage_NewComment,
         },
+        {
+            path:'/recipes',
+            name: 'Name_Search',
+            component: Name_Search,
+        }
         
     ]
 })
