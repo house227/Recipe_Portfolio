@@ -9,6 +9,8 @@ class allergy extends Model
 {
     use HasFactory;
 
+    protected $table = "allergys";
+
     //ユーザーのアレルギーを取得
     //1対多の1側なので単数形
     public function appuser()

@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 // Laravel8から使用するコントローラを記述しなければならない
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\AppuserController;
+use App\Http\Controllers\AllergyController;
+use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\ProcedureController;
 
 
 // Laravel8から書き方が変更された
@@ -13,6 +17,10 @@ use App\Http\Controllers\RecipeController;
 
 // recipesへ接続したら接続方法によってコントローラ内のアクションが割り振られる
 Route::apiResource('/recipes', RecipeController::class);
+Route::apiResource('/appusers', AppuserController::class);
+Route::apiResource('/allergys', AllergyController::class);
+Route::apiResource('/ingredients', IngredientController::class);
+Route::apiResource('/procedures', ProcedureController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

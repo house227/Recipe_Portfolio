@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Allergy;
+
 class AllergyController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class AllergyController extends Controller
      */
     public function index()
     {
-        //
+        //JSONが日本語で表示されるように
+        $allergy = Allergy::all();
+        return response()->json([
+            'data' => $allergy
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**
