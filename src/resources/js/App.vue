@@ -55,6 +55,10 @@
         <HeaderUserTop v-else-if="this.$route.path === '/MakeRecipeTop'" />
         <HeaderUserTop v-else-if="this.$route.path === '/MakeRecipePreview'" />
 
+        <!-- レシピ検索結果 -->
+            <!-- ゲスト版名前検索結果 -->
+        <HeaderGuestTop v-else-if="this.$route.path === '/recipes'" />
+
         <!-- ここにルート別のコンポーネントが入る -->
         <router-view></router-view>
 
