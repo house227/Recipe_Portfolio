@@ -24,6 +24,12 @@ class recipesTableSeeder extends Seeder
                 'recipe_type' => '和食',
                 'photo' => 'https://park.ajinomoto.co.jp/wp-content/uploads/2018/03/708200.jpeg'
             ],
+            [
+                'appusers_id' => '2',
+                'title' => 'pizza',
+                'recipe_type' => 'イタリアン',
+                'photo' => 'https://partenope.jp/img/970x647/17.jpg'
+            ],
         ]);
     }
 }
