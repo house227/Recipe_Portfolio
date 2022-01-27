@@ -30,7 +30,10 @@ class ProcedureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //新しい手順を保存(途中)
+        $form = $request->only(['procedure']);
+        unset($form['_token']);
+
     }
 
     /**
