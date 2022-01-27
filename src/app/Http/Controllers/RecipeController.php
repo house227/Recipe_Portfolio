@@ -17,9 +17,7 @@ class RecipeController extends Controller
     {
         //JSONが日本語で表示されるように
         $recipe = Recipe::all();
-        return response()->json([
-            'data' => $recipe
-        ], 200, [], JSON_UNESCAPED_UNICODE);
+        return $recipe;
     }
 
     /**
@@ -39,9 +37,10 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($aaaa)
     {
-        //
+        $recipe = Recipe::where('title', $aaaa)->first();
+        return $recipe;
     }
 
     /**
