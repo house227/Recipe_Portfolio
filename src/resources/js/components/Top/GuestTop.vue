@@ -33,11 +33,14 @@
                 <!-- レシピ名/ユーザー名で検索 -->
                 <!-- 送信方法/送信先は要編集 -->
                 <div style="padding-right: 500px">
-                    <form action="/recipes" method="get">
+                    <!-- <form action="/recipes" method="get"> -->
                         <h2 id="form1">●レシピ名/ユーザー名 から検索</h2> 
-                        <input type="text" name="main_search"  class="text-form" style="margin-left:60px">
-                        <input type="submit" value="検索!!" style="font-size: 20px">
-                    </form>
+                        <input type="text" name="main_search"  class="text-form" style="margin-left:60px"
+                        v-model="keyword">
+                        <input type="submit" value="検索!!" style="font-size: 20px"
+                        v-on:click="doSearch">
+                        <h2>{{item}}</h2>
+                    <!-- </form> -->
 
 
 
@@ -131,6 +134,8 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default{
         data(){
             return{
@@ -138,6 +143,8 @@
                 items: [''],
                 // 食材用inputの最大個数
                 maxInput: 5,
+                keyword:'親子丼',
+                item:''
             }
         },
         methods: {
@@ -153,6 +160,14 @@
                 // id番の配列を１つ削除する
                 this.items.splice(id, 1);
             },
+            async doSearch(){
+                const searchURL = '/api/recipes/' + this.keyword
+                const response = await axios.get(searchURL)
+                console.log(response);
+                console.log(response.data);
+                console.log(response.data.title);
+                this.item = response.data.title
+            }
         },
         computed: {
             // 上記v-if文で使用する関数。inputが5個未満の間追加ボタンを表示するv-if文で使用
