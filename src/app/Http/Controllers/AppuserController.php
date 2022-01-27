@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Appuser;
+
 class AppuserController extends Controller
 {
     /**
@@ -13,15 +15,11 @@ class AppuserController extends Controller
      */
     public function index()
     {
-        //送られてきた個人情報をデータベースにいれる
-        public function userdata()
-        {
-            $userdata = new appuser;
-            $form = $request->all();
-            unset($form['_token']);
-            $userdata->fill($form)->save();
-            //return 
-        }
+        //JSONが日本語で表示されるように
+        $appuser = Appuser::all();
+        return response()->json([
+            'data' => $appuser
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Ingredient;
+
 class IngredientController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        //
+        //JSONが日本語で表示されるように
+        $ingredient = Ingredient::all();
+        return response()->json([
+            'data' => $ingredient
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**

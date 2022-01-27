@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Procedure;
+
 class ProcedureController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class ProcedureController extends Controller
      */
     public function index()
     {
-        //
+        //JSONが日本語で表示されるように
+        $procedure = Procedure::all();
+        return response()->json([
+            'data' => $procedure
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -24,7 +30,10 @@ class ProcedureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //新しい手順を保存(途中)
+        $form = $request->only(['procedure']);
+        unset($form['_token']);
+
     }
 
     /**

@@ -15,8 +15,11 @@ class RecipeController extends Controller
      */
     public function index()
     {
+        //JSONが日本語で表示されるように
         $recipe = Recipe::all();
-        return $recipe;
+        return response()->json([
+            'data' => $recipe
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**

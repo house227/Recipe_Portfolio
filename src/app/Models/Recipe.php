@@ -26,6 +26,6 @@ class recipe extends Model
     //１対多の多を引っ張ってくる
     public function procedures()
     {
-        return $this->hasMany('App\Models\Procedure')
+        return $this->hasMany('App\Models\Procedure');
     }
 }
