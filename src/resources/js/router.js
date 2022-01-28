@@ -3,61 +3,61 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 // ゲストでの表示
     //Top画面 
-    import GuestTop from './components/Top/GuestTop'
+    import GuestTop from './components/Top/Guest'
     // ゲストレシピ表示
-    import RecipeView_Guest from './components/RecipeView/RecipeView_Guest'
+    import RecipeView_Guest from './components/RecipeView/Guest'
 
 // ユーザーでの表示
     // Top画面
-    import UserTop from './components/Top/UserTop'
+    import UserTop from './components/Top/User'
 
     // レシピ作成
         // レシピ投稿Top画面
-        import MakeRecipe_Top from './components/MakeRecipe/MakeRecipe_Top'
+        import MakeRecipe_Top from './components/MakeRecipe/Top'
         // レシピプレビュー画面
-        import MakeRecipe_Preview from './components/MakeRecipe/MakeRecipe_Preview'
+        import MakeRecipe_Preview from './components/MakeRecipe/Preview'
 
     // マイページ
         // マイページTop
-        import Mypage_Top from './components/Mypage/Mypage_Top'
+        import Mypage_Top from './components/Mypage/Top'
         // マイレシピ一覧画面
-        import Mypage_Recipe from './components/Mypage/Mypage_MyRecipe'
+        import Mypage_Recipe from './components/Mypage/MyRecipe'
         // お気に入り一覧画面
-        import Mypage_Favorite from './components/Mypage/Mypage_Favorite'
+        import Mypage_Favorite from './components/Mypage/Favorite'
         // 新着コメント一覧
-        import Mypage_NewComment from './components/Mypage/Mypage_NewComment'
+        import Mypage_NewComment from './components/Mypage/NewComment'
 
 
 
 // 新規登録
     // 新規登録Topページ
-    import UserCreate_Top from './components/NewUserCreate/UserCreate_Top'
+    import UserCreate_Top from './components/NewUserCreate/Top'
     // メール送信完了ページ
-    import UserCreate_SendMail from './components/NewUserCreate/UserCreate_SendMail'
+    import UserCreate_SendMail from './components/NewUserCreate/SendMail'
     // 詳細なアカウント登録（メールのURLから飛ぶ先）
-    import UserCreate_Index from './components/NewUserCreate/UserCreate_Index'
+    import UserCreate_Index from './components/NewUserCreate/Index'
     // 確認画面
-    import UserCreate_Confirm from './components/NewUserCreate/UserCreate_Confirm'
+    import UserCreate_Confirm from './components/NewUserCreate/Confirm'
     // 登録完了通知画面
-    import UserCreate_End from './components/NewUserCreate/UserCreate_End'
+    import UserCreate_End from './components/NewUserCreate/End'
 
 // ログイン
     // ログインTop画面
-    import LoginTop from './components/Login/Login_Top'
+    import LoginTop from './components/Login/Top'
 
 // パスワード再設定
     // パスワード再設定Top画面
-    import ResetPass from './components/ResetPass/ResetPass_Top'
+    import ResetPass from './components/ResetPass/Top'
     // メール送信完了ページ
-    import ResetPass_SendMail from './components/ResetPass/ResetPass_SendMail'
+    import ResetPass_SendMail from './components/ResetPass/SendMail'
     // パスワード再設定画面
-    import ResetPass_Index from './components/ResetPass/ResetPass_Index'
+    import ResetPass_Index from './components/ResetPass/Index'
     // 完了通知画面
-    import ResetPass_End from './components/ResetPass/ResetPass_End'
+    import ResetPass_End from './components/ResetPass/End'
 
 // 検索
     // 検索結果画面
-    import Name_Search from './components/Search/Search_Recipe'
+    import Name_Search from './components/Search/Recipe'
 
 
 export const router = createRouter({
