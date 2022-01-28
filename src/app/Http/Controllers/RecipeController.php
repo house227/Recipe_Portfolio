@@ -41,9 +41,10 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($aaaa)
+    public function show($word)
     {
-        $recipe = Recipe::where('title','recipe_type', $aaaa)->first();
+        //レシピ名から検索
+        $recipe = Recipe::where('title', $word)->first();
         return $recipe;
     }
 
