@@ -33,50 +33,61 @@
                 <!-- レシピ名/ユーザー名で検索 -->
                 <!-- 送信方法/送信先は要編集 -->
                 <div style="padding-right: 500px">
-                    <!-- <form action="/recipes" method="get"> -->
-                        <h2 id="form1">●レシピ名/ユーザー名 から検索</h2> 
-                        <input type="text" name="main_search"  class="text-form" style="margin-left:60px"
-                        v-model="keyword">
-                        <input type="submit" value="検索!!" style="font-size: 20px"
-                        v-on:click="doSearch">
-                        <h2>{{item}}</h2>
-                    <!-- </form> -->
+                    <h2 id="form1">●レシピ名/ユーザー名 から検索</h2> 
+                    <input 
+                        type="text" 
+                        name="main_search"  
+                        class="text-form" 
+                        style="margin-left:60px"
+                        v-model="keyword"
+                    >
+                    <input type="submit" value="検索!!" style="font-size: 20px"
+                    @click="doSearch">
+                    <h2>{{item}}</h2>
 
 
 
                     <!-- 送信方法/送信先は要編集 ※各食材に番号を与えないとダメ？(3目並べを思い出せば...)-->
-                    <form action="/" method="post">
-                        <h2 id="form2">●食材から検索(5件まで)</h2>
+                    <h2 id="form2">●食材から検索(5件まで)</h2>
 
-                            <!-- 料理ジャンル選択 -->
-                            <select name="recipe-genre" class="recipe-genre">
-                                <option value="全て" selected>全て</option>
-                                <option value="和食">和食</option>
-                                <option value="洋食">洋食</option>
-                                <option value="中華">中華</option>
-                                <option value="韓国">韓国料理</option>
-                                <option value="イタリアン">イタリアン</option>
-                                <option value="フレンチ">フレンチ</option>
-                                <option value="その他">その他</option>
-                            </select>
-                            <p id="form-text">※Ctrl+Enterで項目追加出来ます</p>
+                        <!-- 料理ジャンル選択 -->
+                        <select v-model="selectGenre" name="recipe-genre" class="recipe-genre">
+                            <option value="全て" selected>全て</option>
+                            <option value="和食">和食</option>
+                            <option value="洋食">洋食</option>
+                            <option value="中華">中華</option>
+                            <option value="韓国">韓国料理</option>
+                            <option value="イタリアン">イタリアン</option>
+                            <option value="フレンチ">フレンチ</option>
+                            <option value="その他">その他</option>
+                        </select>
+                        <p id="form-text">※Ctrl+Enterで項目追加出来ます</p>
 
-                            <!-- 食材入力欄 -->
-                            <!-- forで配列の中を回す。 -->
-                            <li v-for="(item, id) in items" :key="id">
-                                <!-- 食材入力欄 v-focusでフォーカスが自動で当てられる -->
-                                <input v-focus type="text" v-model="items[id]" class="text-form" @keydown.enter.ctrl="addInput()">
-                                    <img src="photo/Box.png" alt="ゴミ箱" @click="removeInput(id)" id="box-img">
-                            </li>
+                        <!-- 食材入力欄 -->
+                        <!-- forで配列の中を回す。 -->
+                        <li v-for="(item, id) in items" :key="id" :number="id">
 
-                            <!-- 追加ボタン (v-ifにより入力欄5個未満の間表示される) -->
-                            <button type="button" @click="addInput()" v-if="!maxInputCount" >
-                                追加
-                                (残り<span v-text="InputCount"></span>つ)
-                            </button><br>
+                            <!-- 食材入力欄 v-focusでフォーカスが自動で当てられる -->
+                            <input 
+                                v-focus 
+                                type="text" 
+                                v-model="items[id]" 
+                                class="text-form" 
+                                @keydown.enter.ctrl="addInput()"
+                            >
+                            <img src="photo/Box.png" alt="ゴミ箱" @click="removeInput(id)" id="box-img">
 
-                            <input type="submit" value="検索!!" id="form2-button">
-                    </form>
+                        </li>
+                            <h3 v-for="(item, id) in items" ::key="id">
+                                {{item}}
+                            </h3>
+                        <!-- 追加ボタン (v-ifにより入力欄5個未満の間表示される) -->
+                        <button type="button" @click="addInput()" v-if="!maxInputCount" >
+                            追加
+                            (残り<span v-text="InputCount"></span>つ)
+                        </button><br>
+
+                        <input type="submit" value="検索!!" id="form2-button" @click="doSearch">
 
                     <!-- 検索欄右上のコメント -->
                     <div id="search-text">
@@ -143,7 +154,8 @@
                 items: [''],
                 // 食材用inputの最大個数
                 maxInput: 5,
-                keyword:'親子丼',
+                keyword:'',
+                selectGenre:'',
                 item:''
             }
         },
@@ -161,12 +173,23 @@
                 this.items.splice(id, 1);
             },
             async doSearch(){
-                const searchURL = '/api/recipes/' + this.keyword
-                const response = await axios.get(searchURL)
-                console.log(response);
-                console.log(response.data);
-                console.log(response.data.title);
-                this.item = response.data.title
+                    // 名前検索。何も入力無ければとりあえず画面移行
+                if (this.keyword !== '') {
+                    const searchURL = '/api/recipes/' + this.keyword
+                    const response = await axios.get(searchURL)
+                    console.log(response);
+                    console.log(response.data);
+                    console.log(response.data.title);
+                    this.item = response.data.title;
+                    //食材検索。何も無ければとりあえず画面移行 
+                }else if(this.selectGenre !== '' && this.items[0] !== ''){
+                    console.log(this.selectGenre);
+                    console.log(this.items);
+                }
+                else{
+                    this.$router.push('/recipes');
+                }
+
             }
         },
         computed: {
@@ -177,7 +200,7 @@
             // 食材用inputの数を数えてる(最大値-配列の個数)
             InputCount(){
                 return this.maxInput - this.items.length;
-            }
+            },
         },
         directives: {
             // 食材入力欄に自動でフォーカスを当てる(当てたい場所にv-focusを付与)
