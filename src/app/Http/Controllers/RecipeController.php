@@ -28,7 +28,11 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //下記は多分使わない
+        // $recipeImg = new Recipe;
+        // request()->file->storeAs('public');
+        // $recipeImg->photo = 'storage/';
+        // $recipeImg->save();
     }
 
     /**
@@ -39,7 +43,7 @@ class RecipeController extends Controller
      */
     public function show($aaaa)
     {
-        $recipe = Recipe::where('title', $aaaa)->first();
+        $recipe = Recipe::where('title','recipe_type', $aaaa)->first();
         return $recipe;
     }
 
