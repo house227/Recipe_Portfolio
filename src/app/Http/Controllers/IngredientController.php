@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Ingredient;
+use App\Models\Recipe;
 
 class IngredientController extends Controller
 {
@@ -15,11 +16,9 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        //JSONが日本語で表示されるように
+        //全てのレシピを返す
         $ingredient = Ingredient::all();
-        return response()->json([
-            'data' => $ingredient
-        ], 200, [], JSON_UNESCAPED_UNICODE);
+        return $ingredient;
     }
 
     /**
@@ -39,9 +38,15 @@ class IngredientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ingredientWord)
     {
-        //
+        //食材であいまい検索して、それが含まれるレシピを全て返す（没）
+        // $ingredients = Ingredient::where('content', 'like', "%{$ingredientWord}%")
+        //                         ->
+        //                          ->where('recipe_type', "和食")
+        //                          ->pluck('recipes_id');
+        // return $ingredients;
+
     }
 
     /**

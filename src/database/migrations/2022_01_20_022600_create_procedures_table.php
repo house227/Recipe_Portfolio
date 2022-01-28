@@ -15,7 +15,7 @@ class CreateProceduresTable extends Migration
     {
         Schema::create('procedures', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('recipes_id');
+            $table->string('recipe_id');
             $table->string('procedure');//手順
             $table->timestamps();
         });

@@ -17,18 +17,23 @@ class recipesTableSeeder extends Seeder
     {
         DB::table('recipes')->insert([
 
-            //appuserモデルにhasOneのリレーションしたはず
             [
-                'appusers_id' => '1',
+                'appuser_id' => '1',
                 'title' => '親子丼',
                 'recipe_type' => '和食',
                 'photo' => 'https://park.ajinomoto.co.jp/wp-content/uploads/2018/03/708200.jpeg'
             ],
             [
-                'appusers_id' => '2',
+                'appuser_id' => '2',
                 'title' => 'pizza',
                 'recipe_type' => 'イタリアン',
                 'photo' => 'https://partenope.jp/img/970x647/17.jpg'
+            ],
+            [
+                'appuser_id' => '2',
+                'title' => '唐揚げ',
+                'recipe_type' => '中華',
+                'photo' => 'https://www.kubara.co.jp/files/bgeditor/img/374__6Jya5YWI5oGV57i65Luj772Z.jpg'
             ],
         ]);
     }

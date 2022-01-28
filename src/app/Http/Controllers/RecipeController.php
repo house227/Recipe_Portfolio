@@ -15,7 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //JSONが日本語で表示されるように
+        //全てのレシピを返す
         $recipe = Recipe::all();
         return $recipe;
     }
@@ -43,8 +43,16 @@ class RecipeController extends Controller
      */
     public function show($word)
     {
-        //レシピ名から検索
-        $recipe = Recipe::where('title', $word)->first();
+        //レシピ名からあいまい検索
+        // $recipe = Recipe::where('title', 'like', "%{$word}%")->first();
+
+        //●食材から検索で
+        //ジャンルを選択してから、食材を入力して、
+        //そのジャンルにその食材があるレシピを表示するイメージ
+        $recipe = Recipe::where('recipe_type', '和食')
+        ->whereHas('ingredients', function($query)use($word){
+            $query->where('content', 'like', "%{$word}%");
+        })->get();
         return $recipe;
     }
 
