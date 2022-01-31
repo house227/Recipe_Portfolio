@@ -190,6 +190,9 @@
                     const responce = await axios.get(searchURL);
                     console.log(this.selectGenre);
                     console.log(this.items);
+                    console.log(response);
+                    console.log(response.data);
+                    console.log(response.data.title);
                 }
                 else{
                     this.$router.push('/recipes');
