@@ -184,6 +184,10 @@
                     this.item = response.data.title;
                     //食材検索。何も無ければとりあえず画面移行 
                 }else if(this.selectGenre !== '' && this.items[0] !== ''){
+                    // レシピジャンルを材料配列の最後尾に入れる
+                    this.items.push(this.selectGenre);
+                    const searchURL = '/api/recipes/' + this.items;
+                    const responce = await axios.get(searchURL);
                     console.log(this.selectGenre);
                     console.log(this.items);
                 }
