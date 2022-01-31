@@ -43,7 +43,6 @@
                     >
                     <input type="submit" value="検索!!" style="font-size: 20px"
                     @click="doSearch">
-                    <h2>{{item}}</h2>
 
 
 
@@ -122,9 +121,8 @@
                 </div>
 
                 <!-- 送信先/送信方法は要変更 -->
-                <form action="/" method="post">
                     <!-- 料理ジャンル選択 -->
-                    <select name="recipe_type" style="font-size:35px">
+                    <select v-model="recipeGenre" name="recipe_type" style="font-size:35px">
                         <option value="全て" selected>全て</option>
                         <option value="和食">和食</option>
                         <option value="洋食">洋食</option>
@@ -134,8 +132,12 @@
                         <option value="フレンチ">フレンチ</option>
                         <option value="その他">その他</option>
                     </select>
-                    <input type="submit" value="検索!!" style="font-size: 28px">
-                </form>
+                    <input 
+                        type="submit" 
+                        value="検索!!" 
+                        style="font-size: 28px" 
+                        @click="doMakeRecipe"
+                    >
             </div>
             
             <router-link to="/MakeRecipeTop" style="font-size:30px; ">
@@ -157,6 +159,7 @@
                 maxInput: 5,
                 keyword:'',
                 selectGenre:'',
+                recipeGenre:'',
                 item:''
             }
         },
@@ -173,21 +176,28 @@
                 // id番の配列を１つ削除する
                 this.items.splice(id, 1);
             },
+                //レシピ検索時の処理
             async doSearch(){
                     // 名前検索。何も入力無ければとりあえず画面移行
                 if (this.keyword !== '') {
-                    const searchURL = '/api/recipes/' + this.keyword
-                    const response = await axios.get(searchURL)
+                    const searchURL = '/api/recipes/' + this.keyword;
+                    const response = await axios.get(searchURL);
                     console.log(response);
                     console.log(response.data);
                     console.log(response.data.title);
-                    this.item = response.data.title;
+                    // データ取得後に画面移行
+                    this.$router.push({
+                        name: 'Recipe_Search',
+                        params: {RecipeData: this.keyword}
+                    });
                     //食材検索。何も無ければとりあえず画面移行 
                 }else if(this.selectGenre !== '' && this.items[0] !== ''){
                     // レシピジャンルを材料配列の最後尾に入れる
                     this.items.push(this.selectGenre);
                     const searchURL = '/api/recipes/' + this.items;
                     const responce = await axios.get(searchURL);
+
+                    // 表示テスト
                     console.log(this.selectGenre);
                     console.log(this.items);
                     console.log(response);
@@ -195,9 +205,17 @@
                     console.log(response.data.title);
                 }
                 else{
-                    this.$router.push('/recipes');
+                    this.$router.push('/SearchedRecipe');
                 }
+            },
+            // 献立作成時の処理
+            async doMakeRecipe(){
+                if(this.recipeGenre !== ''){
+                    // URLがこれで良いか(レシピコントローラで良いか)再度話し合う
+                    const searchURL = '/api/recipes' + this.recipeGenre;
+                    const responce = await axios.get(searchURL);
 
+                }
             }
         },
         computed: {
