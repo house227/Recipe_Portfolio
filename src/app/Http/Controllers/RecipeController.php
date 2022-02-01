@@ -49,15 +49,21 @@ class RecipeController extends Controller
         //●食材から検索で
         //ジャンルを選択してから、食材を入力して、
         //そのジャンルにその食材があるレシピを表示するイメージ
-        $recipe = Recipe::where('recipe_type', '和食')
-        ->whereHas('ingredients', function($query)use($word){
-            $query->where('content', 'like', "%{$word}%");
-        })->get();
 
+
+
+        $recipe = Recipe::where('recipe_type', end($word))
+        ->whereHas('ingredients', function($query)use(reset($word)){
+            $query->where('content', 'like', "%{reset($word)}%");
+        })->get();
+        
         // 料理名検索時は文字列が1つ送られて来る
         // 材料検索の時は材料+ジャンルが入った配列が送られて来る
         // if文で文字列かどうか判別すると処理を分けれる？
+
         // 課題(後で良い):ジャンルが送られて来る「献立作成時」はどう分けるか
+        // $recipe = Recipe::where('title', $word)->first();
+        return $recipe;
     }
 
     /**
