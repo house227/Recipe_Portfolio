@@ -57,7 +57,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 // 検索
     // 検索結果画面
-    import Name_Search from './components/Search/Recipe'
+    import Recipe_Search from './components/Search/Recipe'
 
 
 export const router = createRouter({
@@ -69,6 +69,7 @@ export const router = createRouter({
             path: '/',
             name: 'GuestTop',
             component: GuestTop,
+            props: true,
         },
         {
             // ユーザー用Top画面（最終的に要編集？）
@@ -180,9 +181,11 @@ export const router = createRouter({
             component: Mypage_NewComment,
         },
         {
-            path:'/recipes',
-            name: 'Name_Search',
-            component: Name_Search,
+            // レシピ検索後の表示ページ
+            path:'/SearchedRecipe',
+            name: 'Recipe_Search',
+            component: Recipe_Search,
+            props: true,
         }
         
     ]

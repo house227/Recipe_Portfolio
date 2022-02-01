@@ -49,12 +49,17 @@
     <hr>
   </div>
 
+  <div id="searched">
+      <h2>{{RecipeData}}</h2>
+  </div>
+
 </template>
 
 <script>
 // import { reactive } from "vue";
 import axios from 'axios';
 export default {
+    props:['RecipeData'],
   data(){
       return{
           // items…inputが入れる為の配列。初期値で空を１つ入れておく
@@ -62,6 +67,9 @@ export default {
           // 食材用inputの最大個数
           maxInput: 5,
       }
+  },
+  mounted(){
+      this.SearchRecipe(RecipeData);
   },
   methods: {
       addInput(){
@@ -76,6 +84,12 @@ export default {
           // id番の配列を１つ削除する
           this.items.splice(id, 1);
       },
+
+      async SearchRecipe(data){
+        const searchURL = '/api/recipes/' + data;
+        const responce = await axios.get(searchURL);
+        console.log(responce);
+      }
   },
   computed: {
       // 上記v-if文で使用する関数。inputが5個未満の間追加ボタンを表示するv-if文で使用
@@ -94,10 +108,6 @@ export default {
               el.focus();
           }
       },
-  },
-  mounted() {
-    axios.get('https//localhost:8000/recipes')
-      .then(responce => console.log(responce))
   },
   }
 </script>

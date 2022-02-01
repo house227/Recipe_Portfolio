@@ -53,7 +53,11 @@ class RecipeController extends Controller
         ->whereHas('ingredients', function($query)use($word){
             $query->where('content', 'like', "%{$word}%");
         })->get();
-        return $recipe;
+
+        // 料理名検索時は文字列が1つ送られて来る
+        // 材料検索の時は材料+ジャンルが入った配列が送られて来る
+        // if文で文字列かどうか判別すると処理を分けれる？
+        // 課題(後で良い):ジャンルが送られて来る「献立作成時」はどう分けるか
     }
 
     /**
