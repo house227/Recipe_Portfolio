@@ -45,21 +45,6 @@ class ingredientsTableSeeder extends Seeder
             ],
             [
                 'recipe_id' => '3',
-
-                'recipes_id' => '2',
-                'content' => 'トマト',
-            ],
-            [
-                'recipes_id' => '2',
-                'content' => 'チーズ',
-            ],
-            [
-                'recipes_id' => '2',
-                'content' => 'ベーコン',
-            ],
-            [
-                'recipes_id' => '3',
-
                 'content' => '鶏肉',
             ],
         ]);
