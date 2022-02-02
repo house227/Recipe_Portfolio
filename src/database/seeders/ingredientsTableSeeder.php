@@ -17,33 +17,33 @@ class ingredientsTableSeeder extends Seeder
         DB::table('ingredients')->insert([
 
             [
-                'recipe_id' => '1',
+                'recipes_id' => '1',
                 'content' => '鶏肉',
             ],
 
             [
-                'recipe_id' => '1',
+                'recipes_id' => '1',
                 'content' => '玉ねぎ',
             ],
 
             [
-                'recipe_id' => '1',
+                'recipes_id' => '1',
                 'content' => '卵',
             ],
             [
-                'recipe_id' => '2',
+                'recipes_id' => '2',
                 'content' => 'トマト',
             ],
             [
-                'recipe_id' => '2',
+                'recipes_id' => '2',
                 'content' => 'チーズ',
             ],
             [
-                'recipe_id' => '2',
+                'recipes_id' => '2',
                 'content' => 'ベーコン',
             ],
             [
-                'recipe_id' => '3',
+                'recipes_id' => '3',
                 'content' => '鶏肉',
             ],
         ]);
