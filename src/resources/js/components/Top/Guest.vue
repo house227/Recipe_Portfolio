@@ -186,10 +186,10 @@
                     console.log(response.data);
                     // console.log(response.data.title);
                     // データ取得後に画面移行
-                    this.$router.push({
-                        name: 'Recipe_Search',
-                        params: {RecipeData: this.keyword}
-                    });
+                    // this.$router.push({
+                    //     name: 'Recipe_Search',
+                    //     params: {RecipeData: this.keyword}
+                    // });
                     //食材検索。何も無ければとりあえず画面移行 
                 }else if(this.selectGenre !== '' && this.items[0] !== ''){
                     // レシピジャンルを材料配列の最後尾に入れる
@@ -198,11 +198,11 @@
                     const responce = await axios.get(searchURL);
 
                     // 表示テスト
-                    console.log(this.selectGenre);
-                    console.log(this.items);
-                    console.log(response);
+                    // console.log(this.selectGenre);
+                    // console.log(this.items);
+                    // console.log(response);
                     console.log(response.data);
-                    console.log(response.data.title);
+                    // console.log(response.data.title);
                 }
                 else{
                     this.$router.push('/SearchedRecipe');

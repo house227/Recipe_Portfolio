@@ -19,7 +19,7 @@ class recipe extends Model
     //利用食材中間テーブルのリレーションの定義
     public function ingredients()
     {
-        return $this->belongsToMany('App\Models\Ingredient');
+        return $this->hasMany('App\Models\Ingredient');
     }
 
     //手順のリレーション

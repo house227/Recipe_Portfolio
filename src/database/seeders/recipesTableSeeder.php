@@ -17,9 +17,8 @@ class recipesTableSeeder extends Seeder
     {
         DB::table('recipes')->insert([
 
-            //appuserモデルにhasOneのリレーションしたはず
             [
-                'appusers_id' => '1',
+                'appuser_id' => '1',
                 'title' => '親子丼',
                 'recipe_type' => '和食',
                 'photo' => 'https://park.ajinomoto.co.jp/wp-content/uploads/2018/03/708200.jpeg'

@@ -10,8 +10,8 @@ class ingredient extends Model
     use HasFactory;
 
     //利用食材中間テーブルのリレーションの定義
-    public function recipes()
+    public function recipe()
     {
-        return $this->belongsToMany('App\Models\Recipe');
+        return $this->belongsTo('App\Models\Recipe');
     }
 }

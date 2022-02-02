@@ -19,17 +19,17 @@ class proceduresTableSeeder extends Seeder
         DB::table('procedures')->insert([
 
             [
-                'recipes_id' => '1',
+                'recipe_id' => '1',
                 'procedure' => '玉ねぎを切る',
             ],
 
             [
-                'recipes_id' => '1',
+                'recipe_id' => '1',
                 'procedure' => '鶏肉を切る',
             ],
 
             [
-                'recipes_id' => '1',
+                'recipe_id' => '1',
                 'procedure' => '卵を割って溶く',
             ],
         ]);
