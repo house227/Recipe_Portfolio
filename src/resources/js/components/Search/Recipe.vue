@@ -50,7 +50,10 @@
   </div>
 
   <div id="searched">
-      <h2>{{RecipeData}}</h2>
+    <!-- <h2 v-for="data in $route.params.RecipeData" :key="data">
+        {{data.title}}
+    </h2> -->
+    <h1>{{recipes}}</h1>
   </div>
 
 </template>
@@ -66,10 +69,13 @@ export default {
           items: [''],
           // 食材用inputの最大個数
           maxInput: 5,
+          recipes:'a',
+
       }
   },
   mounted(){
-      this.SearchRecipe(RecipeData);
+        //画面表示と同時にレシピ検索メソッドを動かす
+      this.SearchRecipe(this.$route.params.RecipeData);
   },
   methods: {
       addInput(){
@@ -85,10 +91,12 @@ export default {
           this.items.splice(id, 1);
       },
 
+        // レシピ検索メソッド
       async SearchRecipe(data){
         const searchURL = '/api/recipes/' + data;
         const responce = await axios.get(searchURL);
-        console.log(responce);
+        console.log(responce.data);
+        this.recipes = responce.data;
       }
   },
   computed: {

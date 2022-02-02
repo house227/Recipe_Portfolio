@@ -182,9 +182,9 @@
                 if (this.keyword !== '') {
                     const searchURL = '/api/recipes/' + this.keyword;
                     const response = await axios.get(searchURL);
-                    console.log(response);
+                    // console.log(response);
                     console.log(response.data);
-                    console.log(response.data.title);
+                    // console.log(response.data.title);
                     // データ取得後に画面移行
                     // this.$router.push({
                     //     name: 'Recipe_Search',
