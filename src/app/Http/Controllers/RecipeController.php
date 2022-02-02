@@ -50,7 +50,7 @@ class RecipeController extends Controller
         //ジャンルを選択してから、食材を入力して、
         //そのジャンルにその食材があるレシピを表示するイメージ
 
-
+        //
 
         $recipe = Recipe::where('recipe_type', end($word))
         ->whereHas('ingredients', function($query)use(reset($word)){
