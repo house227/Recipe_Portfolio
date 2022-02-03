@@ -62,11 +62,24 @@
                         </select>
                         <p id="form-text">※Ctrl+Enterで項目追加出来ます</p>
 
-                        <!-- 食材入力欄 -->
-                        <!-- forで配列の中を回す。 -->
+                        <!-- 食材入力欄 今は1つだけの入力にさせる -->
+                        <input 
+                            type="text"
+                            class="text-form"
+                            v-model="food"
+                        >
+                        <h3>{{food}}</h3>
+                        <input 
+                            type="submit" 
+                            value="検索!!" 
+                            id="form2-button" 
+                            @click="doSearch"
+                        >
+                        <!-- 材料を最大5個まで入力させるコード↓ -->
+                        <!-- forで配列の中を回す。
                         <li v-for="(item, id) in items" :key="id" :number="id">
 
-                            <!-- 食材入力欄 v-focusでフォーカスが自動で当てられる -->
+                            食材入力欄 v-focusでフォーカスが自動で当てられる
                             <input 
                                 v-focus 
                                 type="text" 
@@ -78,16 +91,18 @@
 
                         </li>
                             <h3 v-for="(item, id) in items" ::key="id">
-                                <!-- 表示テスト -->
+                                表示テスト
                                 {{item}}
                             </h3>
-                        <!-- 追加ボタン (v-ifにより入力欄5個未満の間表示される) -->
+                        追加ボタン (v-ifにより入力欄5個未満の間表示される)
                         <button type="button" @click="addInput()" v-if="!maxInputCount" >
                             追加
                             (残り<span v-text="InputCount"></span>つ)
                         </button><br>
 
-                        <input type="submit" value="検索!!" id="form2-button" @click="doSearch">
+                        <input type="submit" value="検索!!" id="form2-button" @click="doSearch"> -->
+
+
 
                     <!-- 検索欄右上のコメント -->
                     <div id="search-text">
@@ -154,28 +169,31 @@
         data(){
             return{
                 // items…inputが入れる為の配列。初期値で空を１つ入れておく
-                items: [''],
+                items: [],
                 // 食材用inputの最大個数
                 maxInput: 5,
                 keyword:'',
                 selectGenre:'',
                 recipeGenre:'',
-                item:''
+                item:'',
+                // 材料が1つの時の変数
+                food:'',
             }
         },
-        methods: {
-            addInput(){
-                // フォームが５未満の時のみフォーム欄を増やす
-                if(!this.maxInputCount){
-                    // itemsに空の配列を追加する
-                this.items.push('');
-                }
+        methods:{
+            // 材料入力欄追加/削除ようメソッド(一旦実装中断)
+            // addInput(){
+            //     // フォームが５未満の時のみフォーム欄を増やす
+            //     if(!this.maxInputCount){
+            //         // itemsに空の配列を追加する
+            //     this.items.push('');
+            //     }
                 
-            },
-            removeInput(id){
-                // id番の配列を１つ削除する
-                this.items.splice(id, 1);
-            },
+            // },
+            // removeInput(id){
+            //     // id番の配列を１つ削除する
+            //     this.items.splice(id, 1);
+            // },
                 //レシピ検索時の処理
             async doSearch(){
                     // 名前検索。何も入力無ければとりあえず画面移行
@@ -191,8 +209,9 @@
                         params: {RecipeData: this.keyword}
                     });
                     //食材検索。何も無ければとりあえず画面移行 
-                }else if(this.selectGenre !== '' && this.items[0] !== ''){
+                }else if(this.selectGenre !== '' && this.food !== ''){
                     // レシピジャンルを材料配列の最後尾に入れる
+                    this.items.push(this.food);
                     this.items.push(this.selectGenre);
                     const searchURL = '/api/recipes/' + this.items;
                     const responce = await axios.get(searchURL);
@@ -338,7 +357,7 @@
 
         /* 検索ボタン */
         #form2-button{
-            margin-left: 200px;
+            margin-left: 0;
             font-size: 20px;
         }
 
