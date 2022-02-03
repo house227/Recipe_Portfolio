@@ -214,7 +214,7 @@
                     this.items.push(this.food);
                     this.items.push(this.selectGenre);
                     const searchURL = '/api/recipes/' + this.items;
-                    const responce = await axios.get(searchURL);
+                    const response = await axios.get(searchURL);
 
                     // 表示テスト
                     console.log(this.selectGenre);
