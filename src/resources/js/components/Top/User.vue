@@ -276,7 +276,7 @@
 
     /* 検索ボタン */
     #form2-button{
-        margin-left: 200px;
+        margin-left: 0px;
         font-size: 20px;
     }
 
