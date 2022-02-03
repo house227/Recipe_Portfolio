@@ -52,10 +52,10 @@ class RecipeController extends Controller
 
         //
 
-        $recipe = Recipe::where('recipe_type', end($word))
-        ->whereHas('ingredients', function($query)use(reset($word)){
-            $query->where('content', 'like', "%{reset($word)}%");
-        })->get();
+        // $recipe = Recipe::where('recipe_type', end($word))
+        // ->whereHas('ingredients', function($query)use(reset($word)){
+        //     $query->where('content', 'like', "%{reset($word)}%");
+        // })->get();
         
         // 料理名検索時は文字列が1つ送られて来る
         // 材料検索の時は材料+ジャンルが入った配列が送られて来る
@@ -63,7 +63,19 @@ class RecipeController extends Controller
 
         // 課題(後で良い):ジャンルが送られて来る「献立作成時」はどう分けるか
         // $recipe = Recipe::where('title', $word)->first();
-        return $recipe;
+        // return $recipe;
+
+        //●レシピ名/ユーザー名 から検索
+        if(is_string($word)) {
+            $recipe = Recipe::where('title', 'like', "%{$word}%")->first();
+            return $recipe;
+        } else if(!is_string($word)) {
+            $recipe = Recipe::where('recipe_type', end($word))
+            ->whereHas('ingredients', function($query)use($word){
+                $query->where('content', 'like', "%{$word}%");
+            })->get();
+            return $recipe;
+        }
     }
 
     /**
