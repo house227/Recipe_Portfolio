@@ -66,23 +66,31 @@ class RecipeController extends Controller
         // return $recipe;
 
         //●レシピ名/ユーザー名 から検索
-        if(is_string($word)) {
-            echo "脳が震える";
-            $recipe = Recipe::where('title', 'like', "%{$word}%")->first();
-            return $recipe;
-        } else if(is_object($word)) {
-            echo "脳が震えるよ";
-            $recipe = Recipe::where('recipe_type', $word[1])
-            ->whereHas('ingredients', function($query)use($word){
-                $query->where('content', 'like', "%{$word}%");
-            })->get();
-            return $recipe;
-        }else{
-            echo "怠惰";
-            $recipe = Recipe::where('title', '唐揚げ')->first();
-            return $recipe;
-        }
-        echo "脳が震えるwa";
+        // if(is_string($word)) {
+        //     echo "脳が震える";
+        //     $recipe = Recipe::where('title', 'like', "%{$word}%")->first();
+        //     return $recipe;
+        // } else if(is_object($word)) {
+        //     echo "脳が震えるよ";
+        //     $recipe = Recipe::where('recipe_type', $word[1])
+        //     ->whereHas('ingredients', function($query)use($word){
+        //         $query->where('content', 'like', "%{$word}%");
+        //     })->get();
+        //     return $recipe;
+        // }else{
+        //     echo "怠惰";
+        //     $recipe = Recipe::where('title', '唐揚げ')->first();
+        //     return $recipe;
+        // }
+        // echo "脳が震えるwa";
+
+        //●レシピ名と食材/ジャンルをorWhereで繋ぐ(途中)
+        $recipe = Recipe::where('title', 'like', "%{$word}%")
+                        ->orWhere('recipe_type', 'like', "%{$word}%")
+                        ->whereHas('ingredients', function($query)use($word){
+                            $query->where('content', 'like', "%{$word}%");
+                        })->get();
+                        return $recipe;
     }
 
     /**
